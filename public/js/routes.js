@@ -27,7 +27,10 @@ var routes = [
     path:'/absensi-history/',
     url:'./pages/Absensi/history/absensi-history.html'
   },
-
+  {
+    path:'/tugas-history/',
+    url:'./pages/Absensi/history/tugas-history.html'
+  },
   // Right Panel pages
   {
     path: '/panel-right-1/',
