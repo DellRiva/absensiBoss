@@ -11,6 +11,23 @@ var routes = [
     url: './pages/about.html',
     name: 'about',
   },
+  {
+    path:'/masukkanCatatan/',
+    url:'./pages/Absensi/menu-utama/masukkan-Catatan.html'
+  },
+  {
+    path:'/clocking-history/',
+    url:'./pages/Absensi/history/cloking-history.html'
+  },
+  {
+    path:'/filterClocking/',
+    url:'./pages/Absensi/Tools/filter-clocking.html'
+  },
+  {
+    path:'/absensi-history/',
+    url:'./pages/Absensi/history/absensi-history.html'
+  },
+
   // Right Panel pages
   {
     path: '/panel-right-1/',
