@@ -11,10 +11,41 @@ var routes = [
     url: './pages/about.html',
     name: 'about',
   },
+  
+  // menu utama
   {
     path:'/masukkanCatatan/',
     url:'./pages/Absensi/menu-utama/masukkan-Catatan.html'
   },
+  {
+    path:'/absensi/',
+    url:'./pages/Absensi/menu-utama/Absensi.html'
+  },
+  {
+    path:'/tugas/',
+    url:'./pages/Absensi/menu-utama/Tugas.html'
+  },
+  {
+    path:'/tambahtugas/',
+    url:'./pages/Absensi/Tools/tambahtugas.html'
+  },
+
+  // Absensi 
+
+  {
+    path:'/detailMenunggu/',
+    url:'./pages/Absensi/menu-utama/absensi/detail-menunggu.html'
+  },
+  {
+    path:'/detailDiterima/',
+    url:'./pages/Absensi/menu-utama/absensi/detail-diterima.html'
+  },
+  {
+    path:'/detailDitolak/',
+    url:'./pages/Absensi/menu-utama/absensi/detail-ditolak.html'
+  },
+
+  // Hitory
   {
     path:'/clocking-history/',
     url:'./pages/Absensi/history/cloking-history.html'
@@ -22,6 +53,10 @@ var routes = [
   {
     path:'/filterClocking/',
     url:'./pages/Absensi/Tools/filter-clocking.html'
+  },
+  {
+    path:'/filterTugas/',
+    url:'./pages/Absensi/Tools/filter-tugas.html'
   },
   {
     path:'/absensi-history/',
