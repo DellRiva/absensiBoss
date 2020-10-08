@@ -1,0 +1,103 @@
+<template>
+    <div class="page light">
+        <div class="appbar">
+            <div class="appbar-inner">
+                <div class="left">
+                    <a href="" class="link back icon-only">
+                        <i class="material-icons" style="color: black;font-size: 30px;">keyboard_arrow_left</i>
+                        <span class="" style="color: black;font-size: 18px;">Cabang baru</span>
+                    </a>
+                </div>
+               <div class="right">
+                   <a href="/cabang/" class="link icon-only">
+                    <button class="col button button-outline" style="text-transform: capitalize;">Simpan</button>
+                   </a>
+               </div>
+            </div>
+        </div>
+    
+        <div class="page-content">
+            <div class="list no-hairlines-md no-margin-vertical">
+                <ul>
+                    <li class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-title item-label">Nama Cabang</div>
+                          <div class="item-input-wrap padding-top-half">
+                            <input type="text" placeholder="Masukkan nama cabang">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-title item-label">Alamat</div>
+                          <div class="item-input-wrap padding-top-half">
+                            <textarea placeholder="Masukkan Alamat"></textarea>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-title item-label">Area Cabang</div>
+                          <div class="item-input-wrap padding-top-half">
+                              <a href="/cabang-baru-area-cabang/" class="col button button-outline" style="text-transform: capitalize;">Pilih Area Cabang</a>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-title item-label">Nomor Ponsel</div>
+                          <div class="item-input-wrap padding-top-half">
+                            <input type="text" placeholder="Masukkan nomor ponsel">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-title item-label">Nomor Telepon</div>
+                          <div class="item-input-wrap padding-top-half">
+                            <input type="text" placeholder="Masukkan nomor telepon">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-title item-label">ID Perangkat</div>
+                          <div class="item-input-wrap padding-top-half">
+                            <input type="text" placeholder="Masukkan ID perangkat">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </template>
+    
+    <script>
+        return {
+          methods: {
+            openVerticalButtons: function () {
+              var app = this.$app;
+              app.dialog.create({
+                title: 'Pilih Alasan',
+                buttons: [
+                  {
+                    text: 'Button 1',
+                  },
+                  {
+                    text: 'Button 2',
+                  },
+                  {
+                    text: 'Button 3',
+                  },
+                ],
+                verticalButtons: true,
+              }).open();
+            }
+          }
+        }
+      </script>

@@ -4,8 +4,8 @@
             <a href="#" class="left back padding-left"><i class="material-icons link">arrow_back</i></a>
             <div class="title">Masukkan log</div>
             <div class="right">
-                <a href="/noticationslist/" class="link icon-only" style="width: 130px;">
-                    <button class="button button-outline text-template">Kirim</button>
+                <a href="#" class="link icon-only" style="width: 130px;">
+                    <button class="button bg-template text-color-white">Kirim</button>
                 </a>
             </div>
 
@@ -39,22 +39,47 @@
             <div class="list no-hairlines-md  no-margin-vertical">
             <ul>
                 <li class="item-content item-input">
-                
-                <div class="item-inner">
-                    <div class="item-title item-label">karyawan</div>
-                    <div class="item-input-wrap">
-                    <input type="text" placeholder="Pilih karyawan">
+                    <div class="item-inner">
+                        <div class="item-title item-label text-color-black" style="font-size: 15px;">Pilih Karyawan</div>
+                        <div class="item-input-wrap"    aria-placeholder="Tidak terlipih"  >
+                        <a class="item-link smart-select smart-select-init text-align-left" data-open-in="popover" data-page-title="Cabang">
+                            <select name="pelanggaran">
+                                <option value="" disabled selected>Tidak terlipih</option>
+                            <option value="Monolize">Fyorella</option>
+                            <option value="MNZ Company">Rivai dunah</option>
+                            <option value="MNZ Company">Dimas wahyu</option>
+                            </select>
+                            <div class="item-content no-padding-left">
+                            <div class="item-inner l">
+                                <div class="item-title"></div>
+                                <div class="item-after no-margin-left no-padding-left"></div>
+                            </div>
+                            </div>
+                        </a>
+                        </div>
                     </div>
-                </div>
                 </li>
 
                 <li class="item-content item-input">
-                <div class="item-inner">
-                    <div class="item-title item-label">Pilih type</div>
-                    <div class="item-input-wrap">
-                    <input type="password" placeholder="Pilih type log">
+                    <div class="item-inner">
+                        <div class="item-title item-label text-color-black" style="font-size: 15px;">Tipe log</div>
+                        <div class="item-input-wrap">
+                        <a class="item-link smart-select smart-select-init text-align-left" data-open-in="popover" data-page-title="Tipe log">
+                            <select name="pelanggaran">
+                                <option value="" disabled selected>Tidak terlipih</option>
+                            <option value="Monolize">Overtime In</option>
+                            <option value="MNZ Company">Check In</option>
+                            <option value="MNZ Company">Break In</option>
+                            </select>
+                            <div class="item-content no-padding-left">
+                            <div class="item-inner l">
+                                <div class="item-title"></div>
+                                <div class="item-after no-margin-left no-padding-left"></div>
+                            </div>
+                            </div>
+                        </a>
+                        </div>
                     </div>
-                </div>
                 </li>
 
                 <li class="item-content item-input">
@@ -79,7 +104,7 @@
                     <div class="item-inner">
                         <div class="item-title item-label">URL</div>
                         <div class="item-input-wrap">
-                        <input type="url" placeholder="URL">
+                        <input type="url" placeholder="Deskripsi (optional)">
                         <span class="input-clear-button"></span>
                         </div>
                     </div>

@@ -26,8 +26,24 @@ var routes = [
     url:'./pages/Absensi/menu-utama/Tugas.html'
   },
   {
+    path:'/cabang/',
+    url:'./pages/Absensi/menu-utama/cabang.html'
+  },
+  {
+    path:'/cabang-baru/',
+    componentUrl:'./pages/Absensi/menu-utama/cabang/cabang-baru.html'
+  },
+  {
+    path:'/cabang-baru-area-cabang/',
+    componentUrl:'./pages/Absensi/menu-utama/cabang/area-baru.html'
+  },
+  {
     path:'/tambahtugas/',
     url:'./pages/Absensi/Tools/tambahtugas.html'
+  },
+  {
+    path:'/tambahabsensi/',
+    componentUrl:'./pages/Absensi/Tools/tambahabsensi.html'
   },
 
   // Absensi 
