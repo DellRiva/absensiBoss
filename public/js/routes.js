@@ -38,6 +38,10 @@ var routes = [
     componentUrl:'./pages/Absensi/menu-utama/cabang/area-baru.html'
   },
   {
+    path:'/detail-cabang/',
+    componentUrl:'./pages/Absensi/menu-utama/cabang/detail-cabang.html'
+  },
+  {
     path:'/tambahtugas/',
     url:'./pages/Absensi/Tools/tambahtugas.html'
   },
