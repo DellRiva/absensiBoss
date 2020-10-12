@@ -86,6 +86,18 @@ var routes = [
     path:'/tugas-history/',
     url:'./pages/Absensi/history/tugas-history.html'
   },
+
+  //setting
+  
+  {
+    path:'/profilperusahaan/',
+    componentUrl:'./pages/Absensi/setting/profilperusahaan.html'
+  },
+  {
+    path:'/setelanperusahaan/',
+    componentUrl:'./pages/Absensi/setting/setelanperusahaan.html'
+  },
+
   // Right Panel pages
   {
     path: '/panel-right-1/',
@@ -176,7 +188,7 @@ var routes = [
   // home page
   {
     path: '/homepage/',
-    url: './pages/home.html',
+    componentUrl: './pages/home.html',
   },
   // thankyou page
   {

@@ -1,0 +1,142 @@
+<template>
+    <div class="page light">
+        <div class="appbar">
+            <div class="appbar-inner">
+                <div class="left">
+                    <a href="" class="link back icon-only">
+                        <i class="material-icons" style="color: black;font-size: 30px;">keyboard_arrow_left</i>
+                        <span class="" style="color: black;font-size: 18px;">profil Perusahaan</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="page-content">
+            <div class="block no-margin-vertical">
+                <div class="list no-margin-vertical">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                              <div class="item-inner">
+                                <div class="item-title" style="font-size: 12px;">Atur informasi perusahaan, ketuk untuk mengubah</div>
+                                <div class="item-after"><i class="fas fa-city" style="font-size: 14px;"></i></div>
+                              </div>
+                            </div>
+                          </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="block no-margin-vertical bg-color-white">
+                <div class="list no-margin-top">
+                    <ul>
+                    <li>
+                        <div class="item-content">
+                        <div class="item-inner margin-vertical-half">
+                            <div class="item-title">
+                                <div class="item-header text-color-black" style="font-size:12px;">Profile Perusahaan</div>
+                                <div class="item-header text-color-black padding-top-half" style="font-size:16px; overflow-x: hidden;">Atur informasi perusahaan</div>
+                            </div>
+
+                            <!-- <div class="item-after">CEO</div> -->
+                        </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                        <div class="item-inner margin-vertical-half">
+                            <div class="item-title">
+                                <div class="item-header text-color-black" style="font-size:12px;">Email</div>
+                                <div class="item-header text-color-black padding-top-half" style="font-size:16px; overflow-x: hidden;">rahulruhal0@gmail.com</div>
+                            </div>
+                            <div class="item-after"><i class="material-icons" style="font-size: 25px; color: rgb(74, 162, 96);">check_circle</i></div>
+                            <!-- <div class="item-after"> <span class="badge">5</span></div> -->
+                        </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                        <div class="item-inner margin-vertical-half">
+                            <div class="item-title">
+                                <div class="item-header text-color-black" style="font-size:12px;">Nomor Ponsel</div>
+                                <div class="item-header text-color-black padding-top-half" style="font-size:16px; overflow-x: hidden;">+62 85704293109</div>
+                            </div>
+                            <div class="item-after"><i class="material-icons" style="font-size: 25px; color: rgb(74, 162, 96);">check_circle</i></div>
+                            <!-- <div class="item-after"> <span class="badge">5</span></div> -->
+                        </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                        <div class="item-inner margin-vertical-half">
+                            <div class="item-title">
+                                <div class="item-header text-color-black" style="font-size:12px;">Nomor telepon</div>
+                                <div class="item-header text-color-black padding-top-half" style="font-size:16px; overflow-x: hidden;">+62 85704293109</div>
+                            </div>
+                            <!-- <div class="item-after"> <span class="badge">5</span></div> -->
+                        </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                        <div class="item-inner margin-vertical-half">
+                            <div class="item-title">
+                                <div class="item-header text-color-black" style="font-size:12px;">Fax</div>
+                                <div class="item-header text-color-black padding-top-half" style="font-size:16px; overflow-x: hidden;">-</div>
+                            </div>
+                            <!-- <div class="item-after"> <span class="badge">5</span></div> -->
+                        </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                        <div class="item-inner margin-vertical-half">
+                            <div class="item-title">
+                                <div class="item-header text-color-black" style="font-size:12px;">Alamat</div>
+                                <div class="item-header text-color-black padding-top-half" style="font-size:16px; overflow-x: auto;">Bondowoso, slongir wengi no.12</div>
+                            </div>
+                            <!-- <div class="item-after"> <span class="badge">5</span></div> -->
+                        </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                        <div class="item-inner margin-vertical-half">
+                            <div class="item-title">
+                                <div class="item-header text-color-black" style="font-size:12px;">Mata Uang</div>
+                                <div class="item-header text-color-black padding-top-half" style="font-size:16px; overflow-x: hidden;">IDR</div>
+                            </div>
+                        </div>
+                        </div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </template>
+    
+    <script>
+        return {
+          methods: {
+            openVerticalButtons: function () {
+              var app = this.$app;
+              app.dialog.create({
+                title: 'Pilih Alasan',
+                buttons: [
+                  {
+                    text: 'Button 1',
+                  },
+                  {
+                    text: 'Button 2',
+                  },
+                  {
+                    text: 'Button 3',
+                  },
+                ],
+                verticalButtons: true,
+              }).open();
+            }
+          }
+        }
+      </script>

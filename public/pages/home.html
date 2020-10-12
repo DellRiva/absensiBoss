@@ -1,3 +1,4 @@
+<template>
 <div class="page page-homepage light" data-name="homepage">
     
 
@@ -9,7 +10,7 @@
         </div>
     </div>
 
-    <div class="tabs">
+    <div class="page-content tabs">
         <div id="tab-1" class="page-content tab tab-active"  style="overflow-x: hidden;">
             <div class="navbar">
                 <div class="navbar-inner">
@@ -20,9 +21,6 @@
                         </a>
                         <a class="link icon-only searchbar-enable" data-searchbar=".searchbar-components">
                             <i class="icon material-icons">gps_fixed</i>
-                        </a>
-                        <a class="link icon-only searchbar-enable" data-searchbar=".searchbar-components">
-                            <i class="icon material-icons">shopping_cart</i>
                         </a>
                     </div>
         
@@ -43,9 +41,9 @@
                             
                     <div class="col pl-0 align-self-center">
                         
-                        <p class="text-mute small my-0" style="font-size: 17px">Kamis</p>
-                        <h1 class="text-mute small my-0 pt-2" style="font-size:45px;">09:14</h1>
-                        <p class="text-mute small my-0 pt-2" style="font-size: 14px">01 Okt 2020</p>
+                        <p class="text-mute small my-0" style="font-size: 17px">{{hari}}</p>
+                        <h1 class="text-mute small my-0 pt-2" id="txt" style="font-size:45px;">09:14</h1>
+                        <p class="text-mute small my-0 pt-2" style="font-size: 14px">{{tanggal}}</p>
 
                         <div class="row padding-top margin-top">
                             <div class="col text-align-center" style="border-right:1px solid white;">
@@ -191,14 +189,14 @@
                         </a>
                       </div>
                     <div class="col resizable resizable-fixed" style="min-width: 50px">
-                        <a href="/tambahabsensi/" class="">
+                        <a href="/cabang-baru/" class="">
                             <span>
                                 <div class="card shadow border-0">
                                     <div class="card-content card-content-padding">
-                                        <i class="material-icons text-template link" style="font-size: 30px; " aria-hidden="true">menu_book</i>
+                                        <i class="fas fa-building text-template link" style="font-size: 30px; " aria-hidden="true"></i>
                                     </div>
                                 </div>
-                                <p class="text-secondary mt-1 text-mute small mt-3">Permintaan<br>Absensi</p>
+                                <p class="text-secondary mt-1 text-mute small mt-3">Cabang<br>baru</p>
                               </span>
                         </a>
                     </div>
@@ -206,7 +204,7 @@
             </div>
         </div>
         <div id="tab-2" class="page-content tab"  style="overflow-x: hidden;">
-            <h6 class="block-title">History </h6>
+            <h6 class="block-title"  style="font-weight: bold;">History </h6>
             <p class="" style="margin-right: 16px; margin-left: 16px;">Lihat semua laporan dari kedatangan dan aktivitas lain karyawan</p>
             <div class="block">
                 <a href="/clocking-history/">
@@ -244,291 +242,147 @@
                 </a>
             </div>
         </div>
-        <div id="tab-3" class="page-content tab"  style="overflow-x: hidden;">
-            <div class="block mb-3">
-                <div class="row">
-                    <div class="col">
-                        <h3 class="mb-0 font-weight-normal mt-0">$ 1548.00</h3>
-                        <p class="text-mute text-secondary mt-0">My Balance</p>
-                    </div>
-                    <div class="col-auto">
-                        <button class="button button-fill button-raised color-default button-rounded-54 popup-open" data-popup=".addmoney"><i class="material-icons">add</i></button>
-                    </div>
-                </div>
+        <div id="tab-3" class="page-content tab" style="overflow-x: hidden;">
+            <h6 class="block-title no-margin-bottom" style="font-weight: bold;">Setting </h6>
+            <div class="block no-margin-vertical padding-top margin-bottom-half ">
+                <h6 class="no-margin-vertical">Monopolize Compeny</h6>
+                <p class="text-color-gray no-margin-vertical padding-top-half">Anda masuk sebagai perusahaan</p>
             </div>
-            <div class="swiper-container card-slide mb-2 swiper-init" data-pagination='{"el": ".swiper-pagination"}' data-space-between="0" data-slides-per-view="1">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide pb-4">
-                        <div class="container  z-1 position-relative">
-                            <div class="card bg-template shadow h-200">
-                                <div class="card-content card-content-padding">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <img src="img/visa-logos.png" alt="">
-                                            <p class="small text-mute mt-2">Debit Card</p>
-                                        </div>
-                                        <div class="col-12 mt-5">
-                                            <h3 class="font-weight-normal mt-0">**** **** **** 9858</h3>
-                                        </div>
-                                        <div class="col-12">
-                                            <p>Ammy Jahnson <span class="float-right">11/20</span></p>
-                                        </div>
-                                    </div>
+            <h6 class="block-title no-margin-top padding-top" style="font-weight: bold;">Umum</h6> 
+            <div class="block no-margin-top">
+                <div class="card list no-margin-top">
+                    <ul>
+                        <li>
+                            <a href="/profilperusahaan/" class="item-link item-content">
+                              <div class="item-media"><i class="fas fa-city" style="font-size: 21px;"></i></div>
+                              <div class="item-inner">
+                                <div class="item-title">
+                                  <div class="item-header text-color-black" style="font-size:16px;">Profile Perusahaan</div>
+                                  <div class="item-header text-color-gray" style="font-size:12px; overflow-x: hidden;">Atur informasi perusahaan</div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="container top-40 z-0">
-                            <div class="card mb-4 shadow pt-5">
-                                <div class="card-content card-content-padding border-bottom">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p>EMI<br><small class="text-mute text-secondary">Car Loan</small></p>
-                                        </div>
-                                        <div class="col text-align-right">
-                                            <p>$ 658.00<br><small class="text-mute text-secondary">Paid: 18-12-2019</small></p>
-                                        </div>
-                                    </div>
+                                <div class="item-after"></div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="/setelanperusahaan/" class="item-link item-content">
+                              <div class="item-media"><i class="fas fa-building" style="font-size: 21px;"></i></div>
+                              <div class="item-inner">
+                                <div class="item-title">
+                                  <div class="item-header text-color-black" style="font-size:16px;">Setelan Perusahaan</div>
+                                  <div class="item-header text-color-gray" style="font-size:12px; overflow-x: hidden;">Konfigurasi peraturan untuk karyawan</div>
                                 </div>
-                                <div class="card-content card-content-padding border-bottom">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p>EMI<br><small class="text-mute text-secondary">Car Loan</small></p>
-                                        </div>
-                                        <div class="col text-align-right">
-                                            <p>$ 658.00<br><small class="text-mute text-secondary">Paid: 18-12-2019</small></p>
-                                        </div>
-                                    </div>
+                                <div class="item-after"></div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" class="item-link item-content">
+                              <div class="item-media"><i class="fas fa-globe" style="font-size: 21px;"></i></div>
+                              <div class="item-inner">
+                                <div class="item-title">
+                                  <div class="item-header text-color-black" style="font-size:16px;">Ubah Bahasa</div>
+                                  <div class="item-header text-color-gray" style="font-size:12px;">ENGLISH (Default)</div>
                                 </div>
-                                <div class="card-content card-content-padding bg-none">
-                                    <button class="button button-raised button-fill button-large button-round color-default">Make Payment</button>
+                                <div class="item-after"></div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" class="item-link item-content">
+                              <div class="item-media"><i class="fas fa-info-circle" style="font-size: 21px;"></i></div>
+                              <div class="item-inner">
+                                <div class="item-title">
+                                  <div class="item-header text-color-black" style="font-size:16px;">Tentang Aplikasi &amp; Bantuan</div>
+                                  <div class="item-header text-color-gray" style="font-size:12px;">Versi aplikasi 5.4.4</div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide pb-4">
-                        <div class="container  z-1 position-relative">
-                            <div class="card gradient-success  text-color-white shadow h-200">
-                                <div class="card-content card-content-padding">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <img src="img/visa-logos.png" alt="">
-                                            <p class="small text-mute mt-2">Debit Card</p>
-                                        </div>
-                                        <div class="col-12 mt-5">
-                                            <h3 class="font-weight-normal mt-0">**** **** **** 9858</h3>
-                                        </div>
-                                        <div class="col-12">
-                                            <p>Ammy Jahnson <span class="float-right">11/20</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container top-40 z-0">
-                            <div class="card mb-4 shadow pt-5">
-                                <div class="card-content card-content-padding border-bottom">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p>EMI<br><small class="text-mute text-secondary">Car Loan</small></p>
-                                        </div>
-                                        <div class="col text-align-right">
-                                            <p>$ 658.00<br><small class="text-mute text-secondary">Paid: 18-12-2019</small></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-content card-content-padding border-bottom">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p>EMI<br><small class="text-mute text-secondary">Car Loan</small></p>
-                                        </div>
-                                        <div class="col text-align-right">
-                                            <p>$ 658.00<br><small class="text-mute text-secondary">Paid: 18-12-2019</small></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-content card-content-padding bg-none">
-                                    <button class="button button-raised button-fill button-large button-round color-default">Make Payment</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide pb-4">
-                        <div class="container  z-1 position-relative">
-                            <div class="card gradient-danger text-color-white shadow h-200">
-                                <div class="card-content card-content-padding">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <img src="img/visa-logos.png" alt="">
-                                            <p class="small text-mute mt-2">Debit Card</p>
-                                        </div>
-                                        <div class="col-12 mt-5">
-                                            <h3 class="font-weight-normal mt-0">**** **** **** 9858</h3>
-                                        </div>
-                                        <div class="col-12">
-                                            <p>Ammy Jahnson <span class="float-right">11/20</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container top-40 z-0">
-                            <div class="card mb-4 shadow pt-5">
-                                <div class="card-content card-content-padding border-bottom">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p>EMI<br><small class="text-mute text-secondary">Car Loan</small></p>
-                                        </div>
-                                        <div class="col text-align-right">
-                                            <p>$ 658.00<br><small class="text-mute text-secondary">Paid: 18-12-2019</small></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-content card-content-padding border-bottom">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p>EMI<br><small class="text-mute text-secondary">Car Loan</small></p>
-                                        </div>
-                                        <div class="col text-align-right">
-                                            <p>$ 658.00<br><small class="text-mute text-secondary">Paid: 18-12-2019</small></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-content card-content-padding bg-none">
-                                    <button class="button button-raised button-fill button-large button-round color-default">Make Payment</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
+                                <div class="item-after"></div>
+                              </div>
+                            </a>
+                          </li>
+                    </ul>
+                  </div>
             </div>
-            <div class="block px-0">
-                <!-- Swiper -->
-                <div class="swiper-container offer-slide swiper-init" data-space-between="0" data-slides-per-view="auto">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="card shadow border-0 bg-template mt-0 mb-3">
-                                <div class="card-content card-content-padding py-2 link o-hidden">
-                                    <div class="row">
-                                        <div class="col-auto pr-0">
-                                            <img src="img/graphics-carousel-scheme1.png" alt="" class="mw-100">
-                                        </div>
-                                        <div class="col align-self-center">
-                                            <h5 class="mb-0 mt-0 font-weight-normal">Gold loan scheme</h5>
-                                            <p class="text-mute mt-1">Get all money at market rate of gold</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="swiper-slide">
-                            <div class="card shadow border-0 bg-template mt-0 mb-3">
-                                <div class="card-content card-content-padding py-2 link o-hidden">
-                                    <div class="row">
-                                        <div class="col pr-0 align-self-center">
-                                            <h5 class="mb-0 mt-0 font-weight-normal">Gold loan scheme</h5>
-                                            <p class="text-mute mt-1">Get all money at market rate of gold</p>
-                                        </div>
-                                        <div class="col-auto">
-                                            <img src="img/graphics-carousel-scheme1.png" alt="" class="mw-100">
-                                        </div>
-                                    </div>
+            <h6 class="block-title" style="font-weight: bold;">Akun</h6>
+            <div class="block no-margin-top">
+                <div class="card list no-margin-top">
+                    <ul>
+                        <li>
+                            <a href="#" class="item-link item-content">
+                              <div class="item-media"><i class="fas fa-lock" style="font-size: 21px;"></i></div>
+                              <div class="item-inner">
+                                <div class="item-title">
+                                  <div class="item-header text-color-black" style="font-size:16px;">Ubah Kata Sandi</div>
+                                  <div class="item-header text-color-gray" style="font-size:12px; overflow-x: hidden;">Atur informasi perusahaan</div>
                                 </div>
-                            </div>
-                        </div>
+                                <div class="item-after"></div>
+                              </div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" class="item-link item-content">
+                              <div class="item-media"><i class="fas fa-sign-out-alt" style="font-size: 21px;"></i></div>
+                              <div class="item-inner">
+                                <div class="item-title">
+                                  <div class="item-header text-color-black" style="font-size:16px;">keluar</div>
+                                  <div class="item-header text-color-gray" style="font-size:12px; overflow-x: hidden;">Konfigurasi peraturan untuk karyawan</div>
+                                </div>
+                                <div class="item-after"></div>
+                              </div>
+                            </a>
+                          </li>
+                    </ul>
+                  </div>
+            </div>
 
-                    </div>
-                </div>
-            </div>
-            <div class="block mt-4">
-                <div class="card shadow border-0 mb-3">
-                    <div class="card-header bg-none">
-                        <h6 class="my-0">Donate Flood victims</h6>
-                    </div>
-                    <div class="card-content card-content-padding pt-0">
-                        <figure class="rounded-10 o-hidden mx-0 my-0">
-                            <img src="img/product1.jpg" alt="" class="width-100 vm">
-                        </figure>
-                        <div class="row mt-3">
-                            <div class="col">
-                                <h5 class="font-weight-normal mb-1 mt-0">$ 10.00 </h5>
-                                <p class="text-mute small text-secondary my-0">Feed the flood victims</p>
-                                <div class="progressbar color-green h-2" data-progress="50">
-                                    <span></span>
-                                </div>
-                            </div>
-                            <div class="col-auto pl-0">
-                                <button class="avatar avatar-50 no-shadow border-0 bg-template">
-                                    <i class="material-icons">local_atm</i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="block bg-template">
-                <div class="row">
-                    <div class="col text-align-center">
-                        <h5 class="subtitle mb-1">Most Exciting Feature</h5>
-                        <p class="text-mute">Take a look at our services</p>
-                    </div>
-                </div>
-                <div class="row text-align-center mt-4 color-black">
-                    <div class="col">
-                        <div class="card shadow border-0 mb-4">
-                            <div class="card-content card-content-padding">
-                                <div class="avatar avatar-50 no-shadow border-0">
-                                    <div class="overlay bg-template"></div>
-                                    <i class="material-icons vm md-36 text-template">card_giftcard</i>
-                                </div>
-                                <h3 class="mt-3 mb-0 font-weight-normal text-color-black">2546</h3>
-                                <p class="text-secondary mt-1 text-mute small">Gift it out</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow border-0 mb-4">
-                            <div class="card-content card-content-padding">
-                                <div class="avatar avatar-50 no-shadow border-0">
-                                    <div class="overlay bg-template"></div>
-                                    <i class="material-icons vm md-36 text-template">subscriptions</i>
-                                </div>
-                                <h3 class="mt-3 mb-0 font-weight-normal text-color-black">635</h3>
-                                <p class="text-secondary mt-1 text-mute small">Monthly Billed</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row text-align-center color-black">
-                    <div class="col">
-                        <div class="card shadow border-0 mb-4">
-                            <div class="card-content card-content-padding">
-                                <div class="avatar avatar-50 no-shadow border-0">
-                                    <div class="overlay bg-template"></div>
-                                    <i class="material-icons vm md-36 text-template">local_florist</i>
-                                </div>
-                                <h3 class="mt-3 mb-0 font-weight-normal text-color-black">1542</h3>
-                                <p class="text-secondary mt-1 text-mute small">Eco environment</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow border-0 mb-4">
-                            <div class="card-content card-content-padding">
-                                <div class="avatar avatar-50 no-shadow border-0">
-                                    <div class="overlay bg-template"></div>
-                                    <i class="material-icons vm md-36 text-template">location_city</i>
-                                </div>
-                                <h3 class="mt-3 mb-0 font-weight-normal text-color-black">154</h3>
-                                <p class="text-secondary mt-1 text-mute small">Four Offices</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 
 
 </div>
+</template>
+<script>
+    return {
+        data:function(){
+            var today = new Date();
+
+var hari = String(today.getDate()).padStart(2, '0');
+var tahun = today.getFullYear();
+
+//hari
+var day = today.getDay();
+var daylist = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+var daynow = daylist[day];
+//bulan
+var month = today.getMonth();
+var mlist = ["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"];
+var mnow = hari+" "+ mlist[month]+" "+tahun;
+
+
+return{
+    hari:daynow,
+    tanggal:mnow
+}
+},
+on: {
+pageInit:function startTime(){
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    // var s = today.getSeconds();
+    m = checkTime(m);
+    // s = checkTime(s);
+    document.getElementById('txt').innerHTML = h + " "+ ":" + " "+ m 
+    var t = setTimeout(startTime, 500);
+
+    function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+}
+}
+     
+    }
+  </script>

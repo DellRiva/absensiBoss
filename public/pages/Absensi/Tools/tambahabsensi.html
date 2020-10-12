@@ -16,59 +16,73 @@
         </div>
     </div>
 
-    <div class="block mx-0 mt-2">
-        <div class="row">
-            <div class="col padding-vertical" style="border-bottom: 1px solid gray;">
-                <p class=" mb-2 mt-1" style="font-size: 18px;">Alasan Absensi</p>
-                <!-- <p class="text-mute medium text-secondary mt-2" @click="openVerticalButtons">Pilih Alasan</p> -->
-                <div class="item-input-wrap input-dropdown-wrap">
-                    <select name="gender" placeholder="Please choose...">
-                      <option value="Sakit">Sakit</option>
-                      <option value="Acara Keluarga">Acara Keluarga</option>
-                      <option value="Cuti">Cuti</option>
-                      <option value="Tugas Keluar Kota">Tugas Keluar Kota</option>
-                      <option value="Cuti Hamil">Cuti Hamil</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-0" >
-          <div class="col padding-vertical" style="border-bottom: 1px solid gray;" >
-              <p class=" mb-1 mt-1 text-mute text-secondary" style="font-size: 16px;">Tanggal Mulai</p>
-              <div class="calendar-row" style="border-bottom: 1px solid gray;">
-                  <i class="far fa-calendar mt-1 text-template" style="width: 40px; font-size: 24px;"></i>
-                  <!-- <p class="mb-2 mt-1 text-mute" style="font-size: 16px; font-weight: 500;">08 Okt 2020</p> -->
-                  <input type="date" class="mb-2 mt-1" value="" placeholder="Pilih Tanggal">
-              </div>
-          </div>
-      </div>
-      <div class="row mt-2" >
-          <div class="col p-2">
-              <p class=" mb-1 mt-1 text-mute text-secondary" style="font-size: 16px;">Tanggal Akhir</p>
-              <div class="calendar-row" style="border-bottom: 1px solid gray;">
-                  <i class="far fa-calendar mt-1 text-template" style="width: 40px; font-size: 24px;"></i>
-                  <p class="mb-2 mt-1 text-mute" style="font-size: 16px; font-weight: 500;">11 Okt 2020</p>
-              </div>
-          </div>
-      </div>
-        <div class="row mt-1">
-            <div class="col padding-vertical" style="border-bottom: 1px solid gray;">
-                <p class=" mb-2 mt-1" style="font-size: 18px;">Masukkan Deskripsi</p>
-                <input type="text" placeholder="Deskripsi">
-            </div>
-        </div>
-        <div class="row mt-1">
-            <div class="col padding-vertical">
-                <p class=" mb-2 mt-1" style="font-size: 18px;">Lampiran</p>
-                <div class="row">
-                    <div class="col">
-                        <a href="#" class="button button-raised button-large border-color-gray"><i class="fas fa-paperclip text-template" style="font-size: 20px;"></i>
-                            <span class="text-template" style="font-size: 16px;">Lampirkan Gambar atau Photo</span></a>
+    <div class="page-content">
+        <div class="list no-margin-vertical padding-vertical">
+            <ul>
+                <li class="item-content item-input">
+                    <div class="item-inner">
+                      <div class="item-title item-label text-color-black" style="font-size: 14px;">Pilih Karyawan</div>
+                        <div class="item-input-wrap">
+                          <a class="item-link smart-select smart-select-init text-align-left" data-open-in="popup" data-page-title="Cabang">
+                            <select name="pelanggaran">
+                              <option value="Tidak terpilih" selected>Tidak terpilih</option>
+                            <option value="Monolize">Fyorella wahyu</option>
+                            <option value="MNZ Company">Rivai dunah</option>
+                            </select>
+                            <div class="item-content no-padding-left">
+                            <div class="item-inner l">
+                              <div class="item-title"></div>
+                              <div class="item-after no-margin-left no-padding-left"></div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
                     </div>
-                </div>
+                  </li>
+                  <li class="item-content item-input">
+                    <div class="item-inner">
+                      <div class="item-title item-label text-color-black" style="font-size: 14px;">Dari tanggal</div>
+                      <div class="item-input-wrap">
+                        <input type="date" class="text-template" value="2014-04-30" placeholder="Please choose...">
+                      </div>
+                    </div>
+                  </li>
+                  <li class="item-content item-input">
+                    <div class="item-inner">
+                      <div class="item-title item-label text-color-black" style="font-size: 14px;">Sampai tanggal</div>
+                      <div class="item-input-wrap">
+                        <input type="date" class="text-template" value="2014-04-30" placeholder="Please choose...">
+                      </div>
+                    </div>
+                  </li>
+                  <li class="item-content item-input">
+                    <div class="item-inner">
+                        <div class="item-input-wrap">
+                            <textarea class="resizable" placeholder="Descripsi (optional)"></textarea>
+                            <span class="input-clear-button"></span>
+                          </div>
+                    </div>
+                  </li>
+                  <li class="item-content item-input">
+                    <div class="item-inner">
+                      <div class="item-title item-label">Area Cabang</div>
+                      <div class="item-input-wrap padding-top-half">
+                          <a href="/cabang-baru-area-cabang/" class="col button button-outline" style="text-transform: capitalize;">Lampirkan Gambar atau Photo</a>
+                      </div>
+                    </div>
+                  </li>
+
+            </ul>
+          </div>
+          <!-- <div class="block bottom-button-container">
+            <div class="row">
+                <div class="col">
+                    <a href="/clocking-history/" class="button button-raised button-fill button-large color-default">KONFIRMASI</a>
+                </div>                
             </div>
-        </div>
+        </div> -->
     </div>
+
 </div>
 </template>
 
