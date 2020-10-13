@@ -1,0 +1,106 @@
+<template>
+    <div class="page light">
+        <div class="appbar">
+            <div class="appbar-inner">
+                <div class="left">
+                    <a href="" class="link back icon-only">
+                        <i class="material-icons" style="color: black;font-size: 30px;">keyboard_arrow_left</i>
+                        <span class="" style="color: black;font-size: 18px;"><b>Ubah Kata Sandi</b></span>
+                    </a>
+                </div>
+                <div class="right">
+                    <!-- <a href="#" class="link icon-only">
+                     <button class="col button button-raised button-fill bg-template" style="text-transform: capitalize; ">Simpan</button>
+                    </a> -->
+                </div>
+            </div>
+        </div>
+    
+        <div class="page-content">
+            <div class="block-title text-template">Akun</div>
+            <div class="list">
+                <ul>
+                    <li>
+                        <a href="#" class="item-content">
+                            <div class="item-media">
+                                <div class="avatar avatar-50">
+                                    <img src="img/user2.png" alt="">
+                                </div>    
+                            </div>
+                            <div class="item-inner text-color-gray">
+                              <div class="item-title">
+                                <div class="item-header text-color-black" style="font-size: 20px;">Dreinhart</div>
+                                <div class="item-header padding-top-half" style="font-size: 14px;">Perusahaan</div>
+                              </div>
+                            </div>
+                          </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="block-title text-template">Informasi Kata Sandi</div>
+            <div class="list">
+                <ul>
+                    <li class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-title item-label text-color-black" style="font-size: 13px;">Kata sandi Lama</div>
+                          <div class="item-input-wrap">
+                            <input type="text" placeholder="Your name">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                      </li>
+                    <li class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-title item-label text-color-black" style="font-size: 13px;">Kata Sandi Baru</div>
+                          <div class="item-input-wrap">
+                            <input type="text" placeholder="Ketik di sini">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                    </li>
+                    <li class="item-content item-input">
+                        <div class="item-inner">
+                          <div class="item-title item-label text-color-black" style="font-size: 13px;">Kata Sandi Kata Sandi Baru</div>
+                          <div class="item-input-wrap">
+                            <input type="text" placeholder="Ketik di sini">
+                            <span class="input-clear-button"></span>
+                          </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="block">
+            <div class="row">
+                <div class="col">
+                    <a href="/clocking-history/" class="button button-raised button-fill button-large color-default">KONFIRMASI</a>
+                </div>                
+            </div>
+        </div>
+        </div>
+    </div>
+    </template>
+    
+    <script>
+        return {
+          methods: {
+            openVerticalButtons: function () {
+              var app = this.$app;
+              app.dialog.create({
+                title: 'Pilih Alasan',
+                buttons: [
+                  {
+                    text: 'Button 1',
+                  },
+                  {
+                    text: 'Button 2',
+                  },
+                  {
+                    text: 'Button 3',
+                  },
+                ],
+                verticalButtons: true,
+              }).open();
+            }
+          }
+        }
+      </script>

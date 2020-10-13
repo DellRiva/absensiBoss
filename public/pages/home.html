@@ -277,7 +277,7 @@
                             </a>
                           </li>
                           <li>
-                            <a href="#" class="item-link item-content">
+                            <a href="#" class="item-link item-content sheet-open" data-sheet=".my-sheet-swipe-to-close">
                               <div class="item-media"><i class="fas fa-globe" style="font-size: 21px;"></i></div>
                               <div class="item-inner">
                                 <div class="item-title">
@@ -289,7 +289,7 @@
                             </a>
                           </li>
                           <li>
-                            <a href="#" class="item-link item-content">
+                            <a href="/tentang-aplikasi/" class="item-link item-content">
                               <div class="item-media"><i class="fas fa-info-circle" style="font-size: 21px;"></i></div>
                               <div class="item-inner">
                                 <div class="item-title">
@@ -309,24 +309,24 @@
                 <div class="card list no-margin-top">
                     <ul>
                         <li>
-                            <a href="#" class="item-link item-content">
+                            <a href="/ubah-sandi/" class="item-link item-content">
                               <div class="item-media"><i class="fas fa-lock" style="font-size: 21px;"></i></div>
                               <div class="item-inner">
                                 <div class="item-title">
                                   <div class="item-header text-color-black" style="font-size:16px;">Ubah Kata Sandi</div>
-                                  <div class="item-header text-color-gray" style="font-size:12px; overflow-x: hidden;">Atur informasi perusahaan</div>
+                                  <!-- <div class="item-header text-color-gray" style="font-size:12px; overflow-x: hidden;">Atur informasi perusahaan</div> -->
                                 </div>
                                 <div class="item-after"></div>
                               </div>
                             </a>
                           </li>
                           <li>
-                            <a href="#" class="item-link item-content">
+                            <a href="#" class="item-link item-content" @click='confirmout'>
                               <div class="item-media"><i class="fas fa-sign-out-alt" style="font-size: 21px;"></i></div>
                               <div class="item-inner">
                                 <div class="item-title">
                                   <div class="item-header text-color-black" style="font-size:16px;">keluar</div>
-                                  <div class="item-header text-color-gray" style="font-size:12px; overflow-x: hidden;">Konfigurasi peraturan untuk karyawan</div>
+                                  <!-- <div class="item-header text-color-gray" style="font-size:12px; overflow-x: hidden;">Konfigurasi peraturan untuk karyawan</div> -->
                                 </div>
                                 <div class="item-after"></div>
                               </div>
@@ -339,12 +339,56 @@
 
         </div>
     </div>
+    <div class="sheet-modal my-sheet-swipe-to-close" style="height:auto; --f7-sheet-bg-color: #fff;">
+        <div class="sheet-modal-inner">
+          <div class="page-content">
+            <div class="swipe-handler padding-top-half"></div>
+            <div class="list">
+                <ul>
+                    <li>
+                        <label class="item-radio item-radio-icon-end item-content">
+                            <div class="item-media">
+                                <div class="avatar avatar-30">
+                                    <img src="img/english_flag.png" alt="">
+                                </div>
+                            </div>
+                          <div class="item-inner">
+                            <div class="item-title">ENGLISH</div>
+                            <div class="item-after">
+                                <input type="radio" name="demo-radio-end" value="ENGLISH" checked/>
+                                <i class="icon icon-radio"></i>
+                            </div>
+                          </div>
+                        </label>
+                      </li>
+                      <li>
+                        <label class="item-radio item-radio-icon-end item-content">
+                            <div class="item-media">
+                                <div class="avatar avatar-30">
+                                    <img src="img/indonesia_flag.png" alt="">
+                                </div>
+                            </div>
+                          <div class="item-inner">
+                            <div class="item-title">INDONESIA</div>
+                            <div class="item-after">
+                                <input type="radio" name="demo-radio-end" value="INDONESIA"/>
+                                <i class="icon icon-radio"></i>
+                            </div>
+                          </div>
+                        </label>
+                      </li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 </div>
 </template>
 <script>
     return {
+        
         data:function(){
             var today = new Date();
 
@@ -365,6 +409,7 @@ return{
     hari:daynow,
     tanggal:mnow
 }
+
 },
 on: {
 pageInit:function startTime(){
@@ -381,8 +426,42 @@ pageInit:function startTime(){
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
 }
-}
-}
+},
+pageInit: function () {
+        var self = this;
+    //   self.sheetPush = self.$app.sheet.create({
+    //     el: '.demo-sheet-push',
+    //     push: true,
+    //     backdrop: true,
+    //   });
+    //   self.sheetSwipeToClose = self.$app.sheet.create({
+    //     el: '.demo-sheet-swipe-to-close',
+    //     swipeToClose: true,
+    //     push: true,
+    //     backdrop: true,
+    //   });
+      self.sheetSwipeToStep = self.$app.sheet.create({
+        el: '.my-sheet-swipe-to-close',
+        swipeToClose: true,
+        swipeToStep: false,
+        push: false,
+        backdrop: true,
+      });
+    },
+},
+
+methods: {
+    confirmout: function () {
+        var app = this.$app;
+        app.dialog.confirm('Apakah anda ingin keluar?', "Keluar", function () {
+          app.dialog.alert('Great!');
+        });
+      },
+    toggleSwipeStep: function () {
+      var self = this;
+      self.sheetSwipeToStep.stepToggle();
+    },
+    }
      
     }
   </script>

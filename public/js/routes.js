@@ -97,6 +97,14 @@ var routes = [
     path:'/setelanperusahaan/',
     componentUrl:'./pages/Absensi/setting/setelanperusahaan.html'
   },
+  {
+    path:'/tentang-aplikasi/',
+    componentUrl:'./pages/Absensi/setting/tentang_bantuan.html'
+  },
+  {
+    path:'/ubah-sandi/',
+    componentUrl:'./pages/Absensi/setting/ubah-sandi.html'
+  },
 
   // Right Panel pages
   {
