@@ -15,7 +15,7 @@ var routes = [
   // menu utama
   {
     path:'/masukkanCatatan/',
-    url:'./pages/Absensi/menu-utama/masukkan-Catatan.html'
+    componentUrl:'./pages/Absensi/menu-utama/masukkan-Catatan.html'
   },
   {
     path:'/absensi/',
