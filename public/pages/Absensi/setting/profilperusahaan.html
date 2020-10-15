@@ -35,7 +35,7 @@
                         <div class="item-inner margin-vertical-half">
                             <div class="item-title">
                                 <div class="item-header text-color-black" style="font-size:12px;">Nama Perusahaan</div>
-                                <div class="item-header text-color-black padding-top-half" id="na" style="font-size:16px; overflow-x: hidden;"></div>
+                                <div class="item-header text-color-black padding-top-half" id="n1" style="font-size:16px; overflow-x: hidden;">{{terbaru[0].nama_perusahaan}}</div>
                             </div>
 
                             <!-- <div class="item-after">CEO</div> -->
@@ -47,7 +47,7 @@
                         <div class="item-inner margin-vertical-half">
                             <div class="item-title">
                                 <div class="item-header text-color-black" style="font-size:12px;">Email</div>
-                                <div class="item-header text-color-black padding-top-half" style="font-size:16px; overflow-x: hidden;">{{terbaru[0].email}}</div>
+                                <div class="item-header text-color-black padding-top-half" id="n2" style="font-size:16px; overflow-x: hidden;">{{terbaru[0].email}}</div>
                             </div>
                             <div class="item-after"><i class="material-icons" style="font-size: 25px; color: rgb(74, 162, 96);">check_circle</i></div>
                             <!-- <div class="item-after"> <span class="badge">5</span></div> -->
@@ -59,7 +59,7 @@
                         <div class="item-inner margin-vertical-half">
                             <div class="item-title">
                                 <div class="item-header text-color-black" style="font-size:12px;">Nomor Ponsel</div>
-                                <div class="item-header text-color-black padding-top-half" style="font-size:16px; overflow-x: hidden;">{{terbaru[0].ponsel}}</div>
+                                <div class="item-header text-color-black padding-top-half" id="n3" style="font-size:16px; overflow-x: hidden;">{{terbaru[0].ponsel}}</div>
                             </div>
                             <div class="item-after"><i class="material-icons" style="font-size: 25px; color: rgb(74, 162, 96);">check_circle</i></div>
                             <!-- <div class="item-after"> <span class="badge">5</span></div> -->
@@ -71,7 +71,7 @@
                         <div class="item-inner margin-vertical-half">
                             <div class="item-title">
                                 <div class="item-header text-color-black" style="font-size:12px;">Nomor telepon</div>
-                                <div class="item-header text-color-black padding-top-half" style="font-size:16px; overflow-x: hidden;">{{terbaru[0].telepon}}</div>
+                                <div class="item-header text-color-black padding-top-half" id="n4" style="font-size:16px; overflow-x: hidden;">{{terbaru[0].telepone}}</div>
                             </div>
                             <!-- <div class="item-after"> <span class="badge">5</span></div> -->
                         </div>
@@ -82,7 +82,7 @@
                         <div class="item-inner margin-vertical-half">
                             <div class="item-title">
                                 <div class="item-header text-color-black" style="font-size:12px;">Fax</div>
-                                <div class="item-header text-color-black padding-top-half" style="font-size:16px; overflow-x: hidden;">{{terbaru[0].fax}}</div>
+                                <div class="item-header text-color-black padding-top-half" id="n5" style="font-size:16px; overflow-x: hidden;">{{terbaru[0].fax}}</div>
                             </div>
                             <!-- <div class="item-after"> <span class="badge">5</span></div> -->
                         </div>
@@ -93,7 +93,7 @@
                         <div class="item-inner margin-vertical-half">
                             <div class="item-title">
                                 <div class="item-header text-color-black" style="font-size:12px;">Alamat</div>
-                                <div class="item-header text-color-black padding-top-half" style="font-size:16px; overflow-x: auto;">{{terbaru[0].alamat}}</div>
+                                <div class="item-header text-color-black padding-top-half" id="n6" style="font-size:16px; overflow-x: auto;">{{terbaru[0].alamat}}</div>
                             </div>
                             <!-- <div class="item-after"> <span class="badge">5</span></div> -->
                         </div>
@@ -105,7 +105,7 @@
                             <div class="item-title">
                                 <div class="item-header text-color-black" style="font-size:12px;">Mata Uang</div>
                                 <!-- <div class="item-header text-color-black padding-top-half" style="font-size:16px; overflow-x: hidden;">IDR</div> -->
-                                <select name="currencies">
+                                <select name="currencies" id="currencies">
                                     <option id="USD" value="USD">America (United States) Dollars – USD</option>
                                     <option id="AFN" value="AFN">Afghanistan Afghanis – AFN</option>
                                     <option id="ALL" value="ALL">Albania Leke – ALL</option>
@@ -149,7 +149,7 @@
                     var app = this.$app;
                     var self = this;
 
-                    var t = document.getElementById('na').innerHTML=self.terbaru[0].nama_perusahaan;
+                    const r = document.getElementById(self.terbaru[0].mata_uang).selected=true;
                     const nama = document.getElementById("nama");
                     nama.addEventListener("click", function(){
                         app.dialog.prompt(
@@ -159,6 +159,7 @@
                                 
                                     app.dialog.confirm('Are you sure that your name is ' + name + '?', function () {
                                         self.terbaru[0].nama_perusahaan = name;
+                                        self.refresh();
                                 });
                             },
 
@@ -178,6 +179,7 @@
                                 
                                     app.dialog.confirm('Are you sure that your email is ' + name + '?', function () {
                                         self.terbaru[0].email = name;
+                                        self.refresh();
                                 });
                             },
 
@@ -197,6 +199,7 @@
                                 
                                     app.dialog.confirm('Are you sure that your ponsel number ' + name + '?', function () {
                                         self.terbaru[0].ponsel = name;
+                                        self.refresh();
                                 });
                             },
 
@@ -211,18 +214,19 @@
                     telepon.addEventListener("click", function(){
                         app.dialog.prompt(
                             '',
-                            'Email', 
+                            'Telepone', 
                             function (name) {
                                 
                                     app.dialog.confirm('Are you sure that your telepon is ' + name + '?', function () {
-                                        self.terbaru[0].telepon = name;
+                                        self.terbaru[0].telepone = name;
+                                        self.refresh();
                                 });
                             },
 
                             function (name) {
 
                             },  
-                            self.terbaru[0].telepon.toString()
+                            self.terbaru[0].telepone.toString()
                         );
                     });
 
@@ -233,9 +237,8 @@
                             'Fax', 
                             function (name) {
                                 
-                                    app.dialog.confirm('Are you sure that your fax is ' + name + '?', function () {
-                                        self.terbaru[0].fax = name;
-                                });
+                                self.terbaru[0].fax = name;
+                                self.refresh();
                             },
 
                             function (name) {
@@ -251,10 +254,8 @@
                             '',
                             'Alamat', 
                             function (name) {
-                                
-                                    app.dialog.confirm('Are you sure that your telepon is ' + name + '?', function () {
-                                        self.terbaru[0].alamat = name;
-                                });
+                                self.terbaru[0].alamat = name;
+                                        self.refresh();
                             },
 
                             function (name) {
@@ -264,11 +265,26 @@
                         );
                     });
 
-                    const mata_uang = document.getElementById(terbaru[0].mata_uang).checked=true;
+                    const currencies = document.getElementById("currencies");
+                    currencies.addEventListener("change", function(){
+                        const c = document.getElementById("currencies").value;
+                        self.terbaru[0].mata_uang = c;
+                    });
+
                     
                 }
             },
           methods: {
+              refresh:function(){
+                  const d = document;
+                  var self = this;
+                d.getElementById("n1").innerHTML=self.terbaru[0].nama_perusahaan;
+                d.getElementById("n2").innerHTML=self.terbaru[0].email;
+                d.getElementById("n3").innerHTML=self.terbaru[0].ponsel;
+                d.getElementById("n4").innerHTML=self.terbaru[0].telepone;
+                d.getElementById("n5").innerHTML=self.terbaru[0].fax;
+                d.getElementById("n6").innerHTML=self.terbaru[0].alamat;
+              },
             openVerticalButtons: function () {
               var app = this.$app;
               app.dialog.create({

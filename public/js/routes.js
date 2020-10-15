@@ -19,7 +19,7 @@ var routes = [
   },
   {
     path:'/absensi/',
-    url:'./pages/Absensi/menu-utama/Absensi.html'
+    componentUrl:'./pages/Absensi/menu-utama/Absensi.html'
   },
   {
     path:'/tugas/',
