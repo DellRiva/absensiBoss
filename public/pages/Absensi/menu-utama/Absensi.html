@@ -11,7 +11,7 @@
                     <a href="#" class="left back padding-left"><i class="material-icons link">arrow_back</i></a>
                    <div class="title"><h5 class="page-subtitle mb-4">Absensi</h5></div>
                    <div class="right">
-                       <a href="#" @click="back" class="link icon-only">
+                       <a href="#" @click="back"  class="link icon-only">
                            <i class="material-icons">search</i>
                        </a>
                    </div>
@@ -210,13 +210,51 @@
                 ]
             }
 
+        },
+        on:{
+        pageInit:function(e,page){
+            var self = this;
+            var app = self.$app;
+            var $ = self.$;
+            var key = false;
+
+            $('#back').on('click', function(){
+                console.log('Kembali lah boy - bouy');
+                key = true;
+                setTimeout(function () {
+                    if(key){
+                        app.views.main.router.back();
+                        key = !key;
+                    }else{
+                        console.log('tidak ada');
+                        key = !key;
+                    }
+                }, 2000)
+            });
+        }
         }
         ,
         methods: {
         back:function(){
             var self = this;
-            console.log('Kembali lah boy');
-            app.views.main.router.back();
+            var app = self.$app;
+            var $ = self.$;
+            var key = false;
+            g ();
+
+            function g () {
+                key = true;
+                setTimeout(function () {
+                    if(key){
+                        console.log('Kembali lah boy - bouy');
+                        app.views.main.router.back();
+                        key = !key;
+                    }else{
+                        console.log('tidak ada');
+                        key = !key;
+                    }
+                }, 2000)
+            }
         },
       }
     }
