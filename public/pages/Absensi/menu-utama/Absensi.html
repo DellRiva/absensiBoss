@@ -129,27 +129,20 @@
 </template>
 
 <script>
+    var self = this;
+    var app = self.$app;
+    var $ = self.$;
 
-    function k1 () {
-        var self = this;
-        self.back()
-    }
-
-    function k3 () {
-        var self = this;
-        self.back();
-    }
-
-    function k2 () {
+    function k() {
         var self = this;
             var app = self.$app;
             var $ = self.$;
             var key = false;
-            g ();
+            g();
 
-            function g () {
+            function g() {
                 key = true;
-                setTimeout(function () {
+                setTimeout(function (){
                     if(key){
                         console.log('Kembali lah boy - bouy');
                         app.views.main.router.back();
