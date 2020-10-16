@@ -135,17 +135,6 @@
                 console.log('run');
                 var back = document.getElementById("back");
                 back.click();
-                // key = true;
-                // setTimeout(function (){
-                //     if(key){
-                //         console.log('Kembali lah boy - bouy');
-                //         app.views.main.router.back();
-                //         key = !key;
-                //     }else{
-                //         console.log('tidak ada');
-                //         key = !key;
-                //     }
-                // }, 2000)
             }
         </script>
     </div>
@@ -230,28 +219,6 @@
                 ]
             }
 
-        },
-        on:{
-        pageInit:function(e,page){
-            var self = this;
-            var app = self.$app;
-            var $ = self.$;
-            var key = false;
-
-            $('#back').on('click', function(){
-                console.log('Kembali lah boy - bouy');
-                key = true;
-                setTimeout(function () {
-                    if(key){
-                        app.views.main.router.back();
-                        key = !key;
-                    }else{
-                        console.log('tidak ada');
-                        key = !key;
-                    }
-                }, 2000)
-            });
-        }
         }
         ,
         methods: {
