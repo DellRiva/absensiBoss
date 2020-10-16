@@ -11,7 +11,7 @@
                     <a href="#" class="left back padding-left"><i class="material-icons link">arrow_back</i></a>
                    <div class="title"><h5 class="page-subtitle mb-4">Absensi</h5></div>
                    <div class="right">
-                       <a href="#" class="link icon-only">
+                       <a href="#" @click="back" class="link icon-only">
                            <i class="material-icons">search</i>
                        </a>
                    </div>
@@ -129,6 +129,12 @@
 </template>
 
 <script>
+    var app = this.$app;
+    var self = this;
+
+    function k () {
+        self.back()
+    }
     return{
         data: function(){
             return{
@@ -205,5 +211,13 @@
             }
 
         }
+        ,
+        methods: {
+        back:function(){
+            var self = this;
+            console.log('Kembali lah boy');
+            app.views.main.router.back();
+        },
+      }
     }
 </script>
