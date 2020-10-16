@@ -130,7 +130,17 @@
 
 <script>
 
-    function k () {
+    function k1 () {
+        var self = this;
+        self.back()
+    }
+
+    function k3 () {
+        var self = this;
+        self.back();
+    }
+
+    function k2 () {
         var self = this;
             var app = self.$app;
             var $ = self.$;
