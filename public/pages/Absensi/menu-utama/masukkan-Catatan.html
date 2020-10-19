@@ -3,7 +3,7 @@
         <div class="navbar">
             <div class="navbar-inner">
                 <a href="#" id="back" class="left back padding-left"><i class="material-icons link">arrow_back</i></a>
-                <a href="" id="alert_back" onclick="window.JSInterface.alertback();" hidden></a> 
+                <a href="" id="alert_back" onClick="bc();" hidden></a> 
                 <div class="title">Masukkan log</div>
                 <div class="right">
                     <a href="#" class="link icon-only" style="width: 130px;">
@@ -130,12 +130,22 @@
                         console.log("mech-02");
                         if (alert_back != null) {
                             console.log("alert back on");
-                            alert_back.click();
+                            // alert_back.click();
+                            Android.alertback();
                         }else{
                             console.log("Error");
                         }
                     }
                 }, 2000)
+            }
+
+            function bc() {
+                if(typeof Android !== "undefined" && Android !== null) {
+                    Android.alertback();
+                    console.log('kenek')
+                } else {
+                    console.log("Not viewing in webview");
+                }
             }
         </script>
     </div>
