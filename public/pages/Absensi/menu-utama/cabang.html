@@ -111,13 +111,12 @@
       var back = null;
 
       function k() {
-          console.log('run');
-          
-          setTimeout(function () {
-            console.log("mech-01");
-            back = document.getElementById("back").click();
-          }, 300)
-      }
+                console.log('run-02');
+                setTimeout(function () {
+                    back = document.getElementById("back");
+                    back.click();
+                }, 100)
+            }
   </script>
 </div>
 </template>
