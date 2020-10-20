@@ -144,24 +144,13 @@
           var key = false;
     
           function k() {
-              console.log('run');
-              var back = document.getElementById("back");
-              var alert_back = document.getElementById("alert_back");
-              setTimeout(function () {
-                  if (back == null && alert_back != null) {
-                      console.log("alert back on");
-                      webinterface.success();
-                      webinterface.unsuccess()
-                      back = null;
-                      alert_back = null;
-                  }else{
-                      console.log("mech-01");
-                      back.click();
-                      back = null;
-                      alert_back = null;
-                  }
-              }, 300)
-          }
+          console.log('run');
+          var back = document.getElementById("back");
+          setTimeout(function () {
+            console.log("mech-01");
+            back.click();
+          }, 300)
+      }
       </script>
       </div>
   </template>
