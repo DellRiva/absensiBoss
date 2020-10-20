@@ -27,7 +27,7 @@ var routes = [
   },
   {
     path:'/cabang/',
-    url:'./pages/Absensi/menu-utama/cabang.html'
+    componentUrl:'./pages/Absensi/menu-utama/cabang.html'
   },
   {
     path:'/cabang-baru/',
