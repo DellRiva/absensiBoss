@@ -126,8 +126,21 @@
                 </div>
               </div>
         </div>
-        
         <script>
+            var self = this;
+            var app = self.$app;
+            var $ = self.$;
+            var key = false;
+
+            function k() {
+                console.log('run');
+                setTimeout(function () {
+                    var alert_back = document.getElementById("alert_back").click();
+                }, 100)
+            }
+        </script>
+        
+        <!-- <script>
             var self = this;
             var app = self.$app;
             var $ = self.$;
@@ -152,7 +165,7 @@
                     }
                 }, 100)
             }
-        </script>
+        </script> -->
     </div>
 </template>
 
