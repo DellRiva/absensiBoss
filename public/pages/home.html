@@ -470,12 +470,12 @@ methods: {
         webinterface.success();
         webinterface.unsuccess()
     },
-    // confirmout: function () {
-    //     var app = this.$app;
-    //     app.dialog.confirm('Apakah anda ingin keluar?', "Keluar", function () {
-    //       app.dialog.alert('Great!');
-    //     });
-    //   },
+    confirmout: function () {
+        var app = this.$app;
+        app.dialog.confirm('Apakah anda ingin keluar?', "Keluar", function () {
+          app.dialog.alert('Great!');
+        });
+      },
     toggleSwipeStep: function () {
       var self = this;
       self.sheetSwipeToStep.stepToggle();
