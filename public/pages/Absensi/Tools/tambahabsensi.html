@@ -87,12 +87,13 @@
       var self = this;
       var app = self.$app;
       var $ = self.$;
-      var key = false;
+      var back;
 
       function k() {
           console.log('run');
           setTimeout(function () {
-            var alert_back = document.getElementById("back").click();
+              back = document.getElementById("back");
+              back.click();
           }, 100)
       }
   </script>
