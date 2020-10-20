@@ -15,7 +15,8 @@
             <div class="navbar">
                 <div class="navbar-inner">
                     <div class="title">LinkTeam</div>
-                    <div class="right" id="alert_back">
+                    <div class="right">
+                        <button id="alert_back" @click="alertBack"></button>
                         <a href="#" class="link icon-only panel-open" data-panel="left">
                             <i class="material-icons">notifications_none</i>
                         </a>
@@ -396,18 +397,7 @@
         var back = document.getElementById("back");
         var alert_back = document.getElementById("alert_back");
         setTimeout(function () {
-            if (back == null && alert_back != null) {
-                console.log("alert back on");
-                webinterface.success();
-                webinterface.unsuccess()
-                back = null;
-                alert_back = null;
-            }else{
-                console.log("mech-01");
-                back.click();
-                back = null;
-                alert_back = null;
-            }
+            alert_back.click();
         }, 300)
     }
 </script>
@@ -477,12 +467,17 @@ pageInit: function () {
 },
 
 methods: {
-    confirmout: function () {
-        var app = this.$app;
-        app.dialog.confirm('Apakah anda ingin keluar?', "Keluar", function () {
-          app.dialog.alert('Great!');
-        });
-      },
+    alertBack:function(){
+        console.log("great");
+        webinterface.success();
+        webinterface.unsuccess()
+    },
+    // confirmout: function () {
+    //     var app = this.$app;
+    //     app.dialog.confirm('Apakah anda ingin keluar?', "Keluar", function () {
+    //       app.dialog.alert('Great!');
+    //     });
+    //   },
     toggleSwipeStep: function () {
       var self = this;
       self.sheetSwipeToStep.stepToggle();
