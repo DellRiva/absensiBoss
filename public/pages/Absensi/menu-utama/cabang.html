@@ -2,7 +2,7 @@
 <div class="page light">
     <div class="navbar">
         <div class="navbar-inner">
-            <a href="#" class="left back padding-left"><i class="material-icons link">arrow_back</i></a>
+            <a href="#" id="back" class="left back padding-left"><i class="material-icons link">arrow_back</i></a>
             <div class="title">Cabang</div>
             <div class="right">
                 <a href="/noticationslist/" class="link icon-only"  style="width: 130px;">
@@ -114,6 +114,9 @@
             setTimeout(function () {
                 var t = document.getElementsByClassName('back');
                 console.log(t);
+                var v = document.getElementById('back');
+                console.log(v);
+                v.click();
             }, 300)
         }
   </script>
