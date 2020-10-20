@@ -120,21 +120,20 @@
 
             function k() {
                 console.log('run');
-                var back = document.getElementById("bac");
+                var back = document.getElementById("back");
                 var alert_back = document.getElementById("alert_back");
                 setTimeout(function () {
-                    if (back != null) {
+                    if (back == null && alert_back != null) {
+                        console.log("alert back on");
+                        webinterface.success();
+                        webinterface.unsuccess()
+                        back = null;
+                        alert_back = null;
+                    }else{
                         console.log("mech-01");
                         back.click();
-                    }else{
-                        console.log("mech-02");
-                        if (alert_back != null) {
-                            console.log("alert back on");
-                            webinterface.success();
-                            webinterface.unsuccess()
-                        }else{
-                            console.log("Error");
-                        }
+                        back = null;
+                        alert_back = null;
                     }
                 }, 100)
             }
