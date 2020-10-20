@@ -108,14 +108,14 @@
       var self = this;
       var app = self.$app;
       var $ = self.$;
-      var back;
+      var back = null;
 
       function k() {
           console.log('run');
-          back = document.getElementById("back");
+          
           setTimeout(function () {
             console.log("mech-01");
-            back.click();
+            back = document.getElementById("back").click();
           }, 300)
       }
   </script>
