@@ -112,9 +112,9 @@
       function k() {
             console.log('run');
             setTimeout(function () {
-                var t = document.getElementsByClassName('back');
+                var t = self.document.getElementsByClassName('back');
                 console.log(t);
-                var v = document.getElementById('back');
+                var v = self.document.getElementById('back');
                 console.log(v);
                 v.click();
             }, 300)
