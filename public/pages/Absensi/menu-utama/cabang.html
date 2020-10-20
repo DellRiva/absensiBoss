@@ -108,13 +108,12 @@
       var self = this;
       var app = self.$app;
       var $ = self.$;
-      var back = null;
 
       function k() {
             console.log('run');
             setTimeout(function () {
                 var t = document.getElementsByClassName('back');
-                t.click();
+                console.log(t);
             }, 300)
         }
   </script>
