@@ -397,6 +397,12 @@
         setTimeout(function () {
         var alert_back = document.getElementById("alert_back").click();
         }, 300)
+
+        $('#alert_back').on('click', function(){
+            console.log('success');
+            webinterface.success();
+            webinterface.unsuccess();
+        })
     }
 </script>
 </template>
@@ -465,11 +471,6 @@ pageInit: function () {
 },
 
 methods: {
-    alertBack:function(){
-        console.log("great");
-        webinterface.success();
-        webinterface.unsuccess()
-    },
     confirmout: function () {
         var app = this.$app;
         app.dialog.confirm('Apakah anda ingin keluar?', "Keluar", function () {
