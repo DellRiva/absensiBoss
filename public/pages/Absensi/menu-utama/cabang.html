@@ -111,15 +111,27 @@
       var back = null;
 
       function k() {
-                console.log('run-02');
+                console.log('run');
+                var back = document.getElementById("back");
+                var alert_back = document.getElementById("alert_back");
                 setTimeout(function () {
-                    back = document.getElementById("back");
-                    back.click();
-                }, 100)
+                    if (back == null && alert_back != null) {
+                        console.log("alert back on");
+                        webinterface.success();
+                        webinterface.unsuccess()
+                        back = null;
+                        alert_back = null;
+                    }else{
+                        console.log("mech-01");
+                        back.click();
+                        back = null;
+                        alert_back = null;
+                    }
+                }, 300)
             }
   </script>
 </div>
 </template>
 <script>
-  
+
 </script>
