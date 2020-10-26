@@ -142,12 +142,14 @@
             var key = false;
       
             function k() {
-          console.log('run');
-          var back = document.getElementById("back");
+          console.log('detail cabang');
           setTimeout(function () {
-            console.log("mech-01");
-            back.click();
-          }, 300)
+                    if ($('.back') == null) {
+                        webinterface.unsuccess()
+                    }else{
+                        $('.back').click();
+                    }
+                }, 300)
       }
         </script>
         </div>

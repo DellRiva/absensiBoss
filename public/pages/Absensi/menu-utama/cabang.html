@@ -110,14 +110,14 @@
       var $ = self.$;
 
       function k() {
-            console.log('run');
+            console.log('Cabang');
             setTimeout(function () {
-                var t = self.document.getElementsByClassName('back');
-                console.log(t);
-                var v = self.document.getElementById('back');
-                console.log(v);
-                v.click();
-            }, 300)
+                    if ($('.back') == null) {
+                        webinterface.unsuccess()
+                    }else{
+                        $('.back').click();
+                    }
+                }, 300)
         }
   </script>
 </div>
