@@ -390,16 +390,14 @@
         var key = false;
     
         function k() {
-            console.log('run');
+            console.log('run home');
             setTimeout(function () {
-            var alert_back = document.getElementById("alert_back").click();
-            }, 300)
-    
-            $('#alert_back').on('click', function(){
-                console.log('success');
-                webinterface.success();
-                webinterface.unsuccess();
-            })
+                    if ($$('.back') == null) {
+                        webinterface.unsuccess()
+                    }else{
+                        $('.back').click();
+                    }
+                }, 300)
         }
     </script>
 </div>
