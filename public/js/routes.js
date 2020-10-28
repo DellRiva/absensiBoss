@@ -34,6 +34,10 @@ var routes = [
     componentUrl:'./pages/Absensi/menu-utama/cabang/cabang-baru.html'
   },
   {
+    path:'/ptr-refresh/',
+    componentUrl:'./pages/ptr-refresh.html'
+  },
+  {
     path:'/cabang-baru-area-cabang/',
     componentUrl:'./pages/Absensi/menu-utama/cabang/area-baru.html'
   },

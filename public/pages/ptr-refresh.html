@@ -1,0 +1,929 @@
+<template>
+    <div class="page page-homepage" data-name="home-school">
+        <script src="js/gantiakun.js"></script>
+        <button id="alert_back" hidden></button>
+        <script>
+            var key = false;
+            var kunci = 0;
+            function kl() {
+                if (kunci==0) {
+                    webinterface.success();
+                    webinterface.unsuccess();
+                };
+                if (kunci==1){
+                    $('#tutupPopup').click();
+                    kunci=0;
+                };
+                if(kunci==2){
+                    $('#tutupPanel').click();
+                    kunci=0;
+                };
+                };
+                function bukaPop(){
+                    kunci=1;
+                };
+                function bukaPanel(){
+                    kunci=2;
+                };
+                function nol() {
+                    kunci=0;
+                }
+        </script>
+        <div class="panel panel-left panel-reveal panel-resizable panel-init color-white">
+            <div class="page">
+                <div class="page-content">
+                    <div class="block">
+                        <div class="row ">
+                            <a href="/school/school-pengaturan/" @click="tutupPanel" onclick="nol()" class="col-auto" >
+                                <figure class="avatar avatar-60 border-0 "><img src="img/user1.png" alt=""></figure>
+                            </a>
+                            <a href="/school/school-pengaturan/" @click="tutupPanel" onclick="nol()"  class="col pl-0 align-self-center">
+                                <h5 class="my-1 text-color-white">Sri Rahayu Ningsih</h5>
+                                <p class="text-mute small mt-1 text-color-white">srirahayuningsih777@gmail.com</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="list links-list nav-list">
+                            <ul>
+                                <li>
+                                    <a href="/homepage/" @click="tutupPanel" onclick="nol()" class=""><i class="material-icons icons-raised">home</i>Beranda</a>
+                                </li>
+                                <li>
+                                    <a href="/school/school-pengaturan/" @click="tutupPanel" onclick="nol()" class=""><i class="material-icons icons-raised">settings</i>Pengaturan</a>
+                                </li>
+                                <li>
+                                    <a href="/school/pusat-bantuan/" @click="tutupPanel" onclick="nol()" class=""><i class="material-icons icons-raised">help</i>Pusat Bantuan</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="list links-list nav-list">
+                            <ul>
+                                <li>
+                                    <a href="#" @click="konfirmasiKeluar" onclick="nol()"><i class="material-icons icons-raised color-danger">power_settings_new</i>Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <a href="#" @click="tutupPanel" onclick="nol()" id="tutupPanel" class="closesidemenu link"><i class="material-icons icons-raised bg-dark ">close</i></a>
+        </div>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="link icon-only" onclick="bukaPanel()" @click="bukaPanel">
+                        <i class="icon material-icons">menu</i>
+                    </a>
+                </div>
+                <div class="title"><img src="img/logo-header.png" alt="" class="header-logo"> </div>
+                <div class="right">
+                    <a href="/school/notifikasi1/" class="link icon-only">
+                        <i class="material-icons">notifications_none</i><span id="jml_notif" class=""></span>
+                    </a>
+                    <a href="/school/search/" class="link icon-only">
+                        <i class="icon material-icons">search</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="page-content ptr-content" data-ptr-mousewheel="false" @ptr:pullstart="pullstart" @ptr:refresh="ptr" >
+            <div class="ptr-preloader" id="ptr" hidden>
+                <div class="preloader"></div>
+                <div class="ptr-arrow"></div>
+            </div>
+            {{#if loading}}
+            <div class="block mt-0">
+                <div class="skeleton-block mt-4" style="height: 100px; border-radius: 10px;">
+                </div>
+            </div>
+            <div class="block">
+            <div class="row">
+                <div class="swiper-container icon-slide swiper-init" data-space-between="0" data-slides-per-view="auto">
+                    <div class="swiper-wrapper">
+                        <div class="text-align-center swiper-slide">
+                            <a href="#" class="link">
+                            <div class="avatar avatar-50 skeleton-block no-shadow border-0 link">
+                            </div>
+                            </a>
+                            <p class="small skeleton-text mt-2">Absensi</p>
+                        </div>
+                        <div class="text-align-center swiper-slide">
+                            <a href="#" class="link">
+                            <div class="avatar skeleton-block avatar-50 no-shadow border-0 link">
+                            </div>
+                            </a>
+                            <p class="small skeleton-text mt-2">Absensi</p>
+                        </div>
+                        <div class="text-align-center swiper-slide">
+                            <a href="#" class="link">
+                            <div class="avatar skeleton-block avatar-50 no-shadow border-0 link">
+                            </div>
+                            </a>
+                            <p class="small skeleton-text mt-2">Absensi</p>
+                        </div>
+                        <div class="text-align-center swiper-slide">
+                            <a href="#" class="link">
+                            <div class="avatar skeleton-block avatar-50 no-shadow border-0 link">
+                            </div>
+                            </a>
+                            <p class="small skeleton-text mt-2">Absensi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <!-- menu absensi -->
+            <h6 class="block-title skeleton-text">Absensiasadas <a href="#" class="link float-right small">Detail</a></h6>
+            <div class="block px-12">
+            <div class="card">
+                <div class="card-header skeleton-block bg-template h-10">
+                    <div class="text-align-center">
+                        <div class="row">
+                            <div class="col pl-1 align-self-center text-color-white font-weight-normal">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="list sortable">
+                    <ul>
+                        <li class="skeleton-text">
+                            <a href="#" class="item-link item-content no-chevron">
+                                <div class="item-media">
+                                    <div class="avatar skeleton-block avatar-40 no-shadow border-0">
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                <div class="item-title">Bahasa Indonesiaasdasd</div>
+                                <div class="item-after">09:12</div>
+                                </div>
+                            </a>
+                            <div class="sortable-handler"></div>
+                        </li>
+                        <li class="skeleton-text">
+                            <a href="#" class="item-link item-content no-chevron">
+                                <div class="item-media">
+                                    <div class="avatar skeleton-block avatar-40 no-shadow border-0">
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                <div class="item-title">Bahasa Indonesiaasdasd</div>
+                                <div class="item-after">08:10</div>
+                                </div>
+                            </a>
+                            <div class="sortable-handler"></div>
+                        </li>
+                        <li class="skeleton-text">
+                            <a href="#" class="item-link item-content no-chevron">
+                                <div class="item-media">
+                                    <div class="avatar skeleton-block avatar-40 no-shadow border-0">
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                <div class="item-title">Bahasa Indonesiaasdasd</div>
+                                <div class="item-after">07:12</div>
+                                </div>
+                            </a>
+                            <div class="sortable-handler"></div>
+                        </li>
+                        <li class="skeleton-text">
+                            <a href="#" class="item-link item-content no-chevron">
+                                <div class="item-media">
+                                    <div class="avatar skeleton-block avatar-40 no-shadow border-0">
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title">Bahasa Indonesiaasdasd</div>
+                                    <div class="item-after">06:12</div>
+                                </div>
+                            </a>
+                            <div class="sortable-handler"></div>
+                        </li>
+                        <li class="skeleton-text">
+                            <a href="#" class="item-link item-content no-chevron">
+                                <div class="item-media">
+                                    <div class="avatar skeleton-block avatar-40 no-shadow border-0">
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                <div class="item-title">Bahasa Indonesiaasdasd</div>
+                                <div class="item-after">05:43</div>
+                                </div>
+                            </a>
+                            <div class="sortable-handler"></div>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            </div>
+            <h6 class="block-title skeleton-text">Abseniaduks <a href="/school/school-nilai/" class="float-right small link">Detail</a></h6>
+            <div class="block">
+            <!-- Swiper -->
+            <div class="swiper-container offer-slide swiper-init" data-space-between="0" data-slides-per-view="auto">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide pl-0" style="padding-right: 30px;">
+                        <a href="#" class="links-list skeleton-text">
+                            <div class="card shadow border-0 mt-0 mb-3">
+                                <div class="card-content card-content-padding py-2 link o-hidden h-80px">
+                                    <div class="row">
+                                        <div class="col-auto pr-0">
+                                            <div class="avatar avatar-50 no-shadow border-0 skeleton-block">
+                                            </div>
+                                        </div>
+                                        <div class="col align-self-center">
+                                            <p class="text-mute mt-0 small float-right" style="padding: 0px;margin-bottom: -10px;">17 Ags</p>
+                                            <h6 class="mb-0 mt-0 font-weight-normal">Pendidikan Agama Islam</h6>
+                                            <p class="text-mute mt-1 small">Ulangan Semester</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide pl-0" style="padding-right: 30px;">
+                        <a href="#" class="links-list skeleton-text">
+                            <div class="card shadow border-0 mt-0 mb-3">
+                                <div class="card-content card-content-padding py-2 link o-hidden h-80px">
+                                    <div class="row">
+                                        <div class="col-auto pr-0">
+                                            <div class="avatar avatar-50 no-shadow border-0 skeleton-block">
+                                            </div>
+                                        </div>
+                                        <div class="col align-self-center">
+                                            <p class="text-mute mt-0 small float-right" style="padding: 0px;margin-bottom: -10px;">17 Ags</p>
+                                            <h6 class="mb-0 mt-0 font-weight-normal">Pendidikan Agama Islam</h6>
+                                            <p class="text-mute mt-1 small">Ulangan Semester</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide pl-0" style="padding-right: 30px;">
+                        <a href="#" class="links-list skeleton-text">
+                            <div class="card shadow border-0 mt-0 mb-3">
+                                <div class="card-content card-content-padding py-2 link o-hidden h-80px">
+                                    <div class="row">
+                                        <div class="col-auto pr-0">
+                                            <div class="avatar avatar-50 no-shadow border-0 skeleton-block">
+                                            </div>
+                                        </div>
+                                        <div class="col align-self-center">
+                                            <p class="text-mute mt-0 small float-right" style="padding: 0px;margin-bottom: -10px;">17 Ags</p>
+                                            <h6 class="mb-0 mt-0 font-weight-normal">Pendidikan Agama Islam</h6>
+                                            <p class="text-mute mt-1 small">Ulangan Semester</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <!-- keuangan -->
+            <h6 class="block-title skeleton-text">Keuangan <a href="#" class="float-right small link">Detail</a></h6>
+            <div class="block">
+                <div class="skeleton-block mb-3" style="height: 60px; border-radius: 10px;">
+                </div>
+                <div class="skeleton-block mb-3" style="height: 60px; border-radius: 10px;">
+                </div>
+            </div>
+        <!-- end keuangan -->
+        <!-- pengumuman -->
+            <h6 class="block-title skeleton-text">Pengumuman <a href="#" class="float-right small link">Detail</a></h6>
+            <div class="block">
+                <div class="skeleton-block mb-3" style="height: 60px; border-radius: 10px;">
+                </div>
+                <div class="skeleton-block mb-3" style="height: 60px; border-radius: 10px;">
+                </div>
+                <div class="skeleton-block mb-3" style="height: 60px; border-radius: 10px;">
+                </div>
+            </div>
+        <!-- end pengumuman -->
+            {{else}}
+            <div class="block mt-0">
+                <div class="card bg-template shadow mt-4 h-80">
+                    <div class="card-content card-content-padding">
+                        <div class="row">
+                            <div class="col-auto">
+                                <a href="/school/profil/" class="item-link" value="0">
+                                    <figure class="avatar avatar-60"><img src="{{gambarAktif}}" alt="" id="gambarAktif"></figure>
+                                </a>
+                            </div>
+                            <div class="col pl-0 align-self-center">
+                                <a href="/school/profil/" class="item-link">
+                                    <h5 class="mb-1 mt-0 text-color-white namaAkunAktif" id="namaAktif">{{namaAktif}}</h5>
+                                    <p class="text-mute text-color-white small my-0 infoAkunAktif" id="infoAktif">{{kelasAktif}} - {{sekolahAktif}}</p>
+                                </a>
+                            </div>
+                        <div class="col-auto">
+                            <a href="#" class="link popover-open" data-popover=".popover-akun" style="margin-right: -5px;">
+                                <i class="material-icons text-color-white" >more_vert</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="block">
+            <div class="row">
+                <div class="swiper-container icon-slide swiper-init" data-space-between="0" data-slides-per-view="auto">
+                    <div class="swiper-wrapper">
+                        <div class="text-align-center swiper-slide">
+                            <a href="/school/absen-bulanan/" class="link">
+                            <div class="avatar avatar-50 no-shadow border-0 link">
+                                <div class="overlay bg-template"></div>
+                                <i class="material-icons text-template">event</i>
+                            </div>
+                            </a>
+                            <p class="small mt-2">Absensi</p>
+                        </div>
+                        <div class="text-align-center swiper-slide">
+                            <a href="/school/school-nilai/" class="link">
+                            <div class="avatar avatar-50 no-shadow border-0 link">
+                                <div class="overlay bg-template"></div>
+                                <i class="material-icons text-template">book</i>
+                            </div>
+                            </a>
+                            <p class="small mt-2">Nilai</p>
+                        </div>
+                        <div class="text-align-center swiper-slide">
+                            <a href="/school/school-keuangan/" class="link">
+                            <div class="avatar avatar-50 no-shadow border-0 link">
+                                <div class="overlay bg-template"></div>
+                                <i class="material-icons text-template">account_balance_wallet</i>
+                            </div>
+                            </a>
+                            <p class="small mt-2">Keuangan</p>
+                        </div>
+                        <div class="text-align-center swiper-slide">
+                            <a href="#" onclick="bukaPop()" class="popup-open" data-popup=".popup-lain">
+                            <div class="avatar avatar-50 no-shadow border-0 link">
+                                <div class="overlay bg-template"></div>
+                                <i class="material-icons text-template">widgets</i>
+                            </div>
+                            </a>
+                            <p class="small mt-2">Lainnya</p>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+            </div>
+        <!-- menu absensi -->
+            <h6 class="block-title">Absensi <a href="/school/absen-bulanan/" class="link float-right small">Detail</a></h6>
+            <div class="block px-2">
+            <div class="card">
+                <div class="card-header bg-template h-10">
+                    <div class="text-align-center">
+                        <div class="row">
+                            <div class="col pl-1 align-self-center text-color-white font-weight-normal" id="tanggal-absen">
+                                {{tanggal}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="list sortable">
+                    <ul>
+                        <li>
+                            <a href="/school/absen/detail/" class="item-link item-content no-chevron">
+                                <div class="item-media">
+                                    <div class="avatar avatar-40 bg-color-red no-shadow border-0">
+                                        <div class="text-color-white">A</div>
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                <div class="item-title text-color-black">Pulang</div>
+                                <div class="item-after">09:12</div>
+                                </div>
+                            </a>
+                            <div class="sortable-handler"></div>
+                        </li>
+                        <li>
+                            <a href="/school/absen/detail/" class="item-link item-content no-chevron">
+                                <div class="item-media">
+                                    <div class="avatar avatar-40 bg-color-yellow no-shadow border-0">
+                                        <div class="text-color-white">S</div>
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                <div class="item-title text-color-black">Sejarah</div>
+                                <div class="item-after">08:10</div>
+                                </div>
+                            </a>
+                            <div class="sortable-handler"></div>
+                        </li>
+                        <li>
+                            <a href="/school/absen/detail/" class="item-link item-content no-chevron">
+                                <div class="item-media">
+                                    <div class="avatar bg-color-gray avatar-40 no-shadow border-0">
+                                        <div class="text-color-white">I</div>
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                <div class="item-title text-color-black">Bahasa Indonesia</div>
+                                <div class="item-after">07:12</div>
+                                </div>
+                            </a>
+                            <div class="sortable-handler"></div>
+                        </li>
+                        <li>
+                            <a href="/school/absen/detail/" class="item-link item-content no-chevron">
+                                <div class="item-media">
+                                    <div class="avatar avatar-40 bg-color-green no-shadow border-0">
+                                        <i class="material-icons text-color-white">done</i>
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                    <div class="item-title text-color-black">Matematika</div>
+                                    <div class="item-after">06:12</div>
+                                </div>
+                            </a>
+                            <div class="sortable-handler"></div>
+                        </li>
+                        <li>
+                            <a href="/school/absen/detail/" class="item-link item-content no-chevron">
+                                <div class="item-media">
+                                    <div class="avatar avatar-40 bg-color-green no-shadow border-0">
+                                        <i class="material-icons text-color-white">done</i>
+                                    </div>
+                                </div>
+                                <div class="item-inner">
+                                <div class="item-title text-color-black">Masuk Sekolah</div>
+                                <div class="item-after">05:43</div>
+                                </div>
+                            </a>
+                            <div class="sortable-handler"></div>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            </div>
+        <!-- menu nilai -->
+            <h6 class="block-title">Nilai <a href="/school/school-nilai/" class="float-right small link">Detail</a></h6>
+            <div class="block">
+            <!-- Swiper -->
+            <div class="swiper-container offer-slide swiper-init" data-space-between="0" data-slides-per-view="auto">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide pl-0" style="padding-right: 30px;">
+                        <a href="/school/nilai/detail/Ulangan Semester/Pendidikan Agama/17 Agustus 2020/Belum Tuntas/50/" class="links-list">
+                            <div class="card shadow border-0 mt-0 mb-3">
+                                <div class="card-content card-content-padding py-2 link o-hidden h-80px">
+                                    <div class="row">
+                                        <div class="col-auto pr-0">
+                                            <div class="avatar avatar-50 no-shadow border-0 bg-color-red">
+                                                <div class="text-color-white">50</div>
+                                            </div>
+                                        </div>
+                                        <div class="col align-self-center">
+                                            <p class="text-mute mt-0 small text-color-gray float-right" style="padding: 0px;margin-bottom: -10px;">17 Ags</p>
+                                            <h6 class="mb-0 mt-0 font-weight-normal text-color-black">Pendidikan Agama Islam</h6>
+                                            <p class="text-mute mt-1 small text-color-gray">Ulangan Semester</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide pl-0" style="padding-right: 30px;">
+                        <a href="/school/nilai/detail/Ulangan Tengah Semester/Matematika/17 Agustus 2020/Tuntas/95/" class="links-list">
+                            <div class="card shadow border-0 mt-0 mb-3">
+                                <div class="card-content card-content-padding py-2 link o-hidden h-80px">
+                                    <div class="row">
+                                        <div class="col pr-0 col-auto">
+                                            <div class="avatar avatar-50 no-shadow border-0 bg-color-green">
+                                                <div class="text-color-white">95</div>
+                                            </div>
+                                        </div>
+                                        <div class="col align-self-center">
+                                            <p class="text-mute mt-0 small text-color-gray float-right" style="padding: 0px;margin-bottom: -10px;">17 Ags</p>
+                                            <h6 class="mb-0 mt-0 font-weight-normal text-color-black">Matematika</h5>
+                                            <p class="text-mute mt-1 small text-color-gray">Ulangan Tengah Semester</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide pl-0" style="padding-right: 30px;">
+                        <a href="/school/nilai/detail/Ulangan Tengah Semester/Pendidikan Kewarganegaraan/17 Agustus 2020/Tuntas/75/" class="links-list">
+                            <div class="card shadow border-0 mt-0 mb-3">
+                                <div class="card-content card-content-padding py-2 link o-hidden" style="height: 80;">
+                                    <div class="row">
+                                        <div class="col pr-0 col-auto">
+                                            <div class="avatar avatar-50 no-shadow border-0 bg-color-yellow">
+                                                <div class="text-color-white">75</div>
+                                            </div>
+                                        </div>
+                                        <div class="col align-self-center">
+                                            <p class="text-mute mt-0 small text-color-gray float-right" style="padding: 0px;margin-bottom: -10px;">17 Ags</p>
+                                            <h6 class="mb-0 mt-0 font-weight-normal text-color-black">Pendidikan Kewarganegaraan</h5>
+                                            <p class="text-mute mt-1 mb-0 small text-color-gray">Ulangan Tengah Semester</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <!-- end nilai -->
+        <!-- keuangan -->
+            <h6 class="block-title">Keuangan <a href="/school/school-keuangan/" class="float-right small link">Detail</a></h6>
+            <div class="block">
+            <a href="/school/keuangan/detail/tagihan/belum/" class="item-link">
+                <div class="card shadow border-0 mb-3">
+                    <div class="card-content card-content-padding">
+                        <div class="row align-items-flex-start">
+                            <div class="col-auto align-self-flex-start text-align-left">
+                                <h6 class="font-weight-normal mb-1 mt-0 pl-0 pr-0 text-color-black">Buku Paket</h6>
+                                <p class="text-mute small text-secondary mt-1">15 Jul 2020</p>
+                            </div>
+                            <div class="col-45 align-self-flex-end text-align-right">
+                                <h6 class="font-weight-normal mb-1 mt-0 pr-0 text-color-black">Rp 80.000</h6>
+                                <p class="mt-1 badge color-red small vm text-white">Belum Dibayar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="/school/keuangan/detail/tagihan/cicil/" class="item-link"><div class="card shadow border-0 mb-3">
+                <div class="card-content card-content-padding">
+                    <div class="row align-items-flex-start">
+                        <div class="col-auto align-self-flex-start text-align-left">
+                            <h6 class="font-weight-normal mb-1 mt-0 pl-0 pr-0 text-color-black">Spp Bulanan</h6>
+                            <p class="text-mute small text-secondary mt-1">15 Jul 2020</p>
+                        </div>
+                        <div class="col-45 align-self-flex-end text-align-right">
+                            <h6 class="font-weight-normal mb-1 mt-0 text-color-black">Rp 1.000.000</h6>
+                            <p class="mt-1 badge color-orange small vm text-white">Belum Lunas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </a>
+            </div>
+        <!-- end keuangan -->
+        <!-- pengumuman -->
+            <h6 class="block-title">Pengumuman <a href="/school/pengumuman/" class="float-right small link">Detail</a></h6>
+            <div class="block">
+            <a href="/school/pengumuman/detail/" class="list-link item-content">
+                <div class="card shadow border-0 mb-3">
+                    <div class="card-content card-content-padding">
+                        <div class="row">
+                            <div class="col-auto pr-0">
+                                <i class="material-icons text-template-primary align-self-flex-start">email</i>
+                            </div>
+                            <div class="col">
+                                <h6 class="font-weight-normal mb-1 mt-0">Ms. Shivani Dilux<span class="float-right small text-color-gray">2 Jul 2020</span></h6>
+                                <p class="text-mute small text-secondary mt-1">"Thank you for your purchase with our shop and making online payment."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="/school/pengumuman/detail/" class="list-link">
+                <div class="card shadow border-0 mb-3">
+                    <div class="card-content card-content-padding">
+                        <div class="row">
+                            <div class="col-auto pr-0">
+                                <i class="material-icons text-color-gray align-self-flex-start">email</i>
+                            </div>
+                            <div class="col">
+                                <h6 class="font-weight-normal mb-1 mt-0 text-color-gray">Ms. Shivani Dilux<span class="float-right small text-color-gray">2 Jul 2020</span></h6>
+                                <p class="text-mute small text-secondary mt-1">"Thank you for your purchase with our shop and making online payment."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="/school/pengumuman/detail/" class="list-link">
+                <div class="card shadow border-0 mb-3">
+                    <div class="card-content card-content-padding">
+                        <div class="row">
+                            <div class="col-auto pr-0">
+                                <i class="material-icons text-color-gray align-self-flex-start">email</i>
+                            </div>
+                            <div class="col">
+                                <h6 class="font-weight-normal mb-1 mt-0 text-color-gray">Ms. Shivani Dilux<span class="float-right small text-color-gray">2 Jul 2020</span></h6>
+                                <p class="text-mute small text-secondary mt-1">"Thank you for your purchase with our shop and making online payment."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        <!-- end pengumuman -->
+            {{/if}}
+        </div>
+        <div class="popup popup-lain">
+            <div class="page light">
+                <div class="navbar no-shadow elevation-0">
+                    <div class="navbar-inner no-shadow elevation-0">
+                        <div class="left"><a href="#" id="tutupPopup" onclick="nol()" class="link popup-close"><i class="material-icons">close</i></a></div>
+                        <div class="title" style="margin-left: -15px;">Lainnya</div>
+                    </div>
+                </div>
+            <div class="page-content">
+                <div class="block px-2 mt-3">
+                    <div class="containerL text-align-center">
+                        <div class="con text-align-center" style="width: 80px; height: 80px;">
+                            <a href="/school/pengumuman/" onclick="nol()" class="popup-close">
+                                <div class="avatar avatar-50 no-shadow border-0 link"><div class="overlay bg-template"></div><i class="fas fa-bullhorn text-template" style="font-size: 21px;"></i></div>
+                            </a>
+                            <p class="small">Pengumuman</p>
+                        </div>
+                        <div class="con text-align-center" style="width: 80px; height: 80px;">
+                            <a href="/school/message/" onclick="nol()" class="popup-close">
+                                <div class="avatar avatar-50 no-shadow border-0"><div class="overlay bg-template"></div><i class="fab fa-whatsapp text-template" style="font-size: 24px;"></i></div>
+                            </a>
+                            <p class="small ">Kontak</p>
+                        </div>
+                        <div class="con text-align-center" style="width: 80px; height: 80px;">
+                            <a href="#" class="">
+                            <div class="avatar avatar-50 no-shadow border-0 link" style="background-color:rgba(185, 185, 185, 0.459);">
+                                <i class="fas fa-address-card text-color-gray" style="font-size: 24px;"></i>
+                            </div>
+                            </a>
+                            <p class="small text-color-gray">Bimbingan Konseling</p>
+                        </div>
+                        <div class="con text-align-center" style="width: 80px; height: 80px;">
+                            <a href="#" class="">
+                            <div class="avatar avatar-50 no-shadow border-0 link" style="background-color:rgba(185, 185, 185, 0.459);">
+                                <i class="material-icons text-color-gray" style="font-size: 24px;">date_range</i>
+                            </div>
+                            </a>
+                            <p class="small text-color-gray">Kalender Pendidikan</p>
+                        </div>
+                        <div class="con text-align-center" style="width: 80px; height: 80px;">
+                            <a href="#" class="">
+                            <div class="avatar avatar-50 no-shadow border-0 link" style="background-color: rgba(185, 185, 185, 0.459);">
+                                <i class="material-icons text-color-gray" style="font-size: 24px;">assignment</i>
+                            </div>
+                            </a>
+                            <p class="small text-color-gray">Jadwal Pelajaran</p>
+                        </div>
+                        <div class="con text-align-center" style="width: 80px; height: 80px;">
+                            <a href="#" class="">
+                            <div class="avatar avatar-50 no-shadow border-0 link" style="background-color: rgba(185, 185, 185, 0.459);">
+                                <i class="fas fa-chalkboard-teacher text-color-gray" style="font-size: 24px;"></i>
+                            </div>
+                            </a>
+                            <p class="small text-color-gray">eLearning</p>
+                        </div>
+                        <div class="con text-align-center" style="width: 80px; height: 80px;">
+                            <a href="#" class="">
+                            <div class="avatar avatar-50 no-shadow border-0 link" style="background-color: rgba(185, 185, 185, 0.459);">
+                                <i class="fas fa-book text-color-gray" style="font-size: 24px;"></i>
+                            </div>
+                            </a>
+                            <p class="small text-color-gray">Perpustakaan</p>
+                        </div>
+                        <div class="con text-align-center" style="width: 80px; height: 80px;">
+                            <a href="#" class="">
+                            <div class="avatar avatar-50 no-shadow border-0 link" style="background-color: rgba(185, 185, 185, 0.459);">
+                                <i class="fas fa-pencil-ruler text-color-gray" style="font-size: 24px;"></i>
+                            </div>
+                            </a>
+                            <p class="small text-color-gray">Ujian Online</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="popover popover-akun popover-on-right">
+            <div class="popover-angle"></div>
+                <div class="popover-inner">
+                    <div class="list">
+                        <ul id="listakun">
+                            {{#each akunAll}}
+                            <li>
+                                <a href="#" @click="gantiAkun({{id}})" class="item-link no-chevron popover-close" id="akunclick">
+                                <div class="item-content">
+                                    <div class="item-media">
+                                        <div class="avatar avatar-40 no-shadow bg-color-gray border-0">
+                                            <img src="{{gambar}}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="item-inner">
+                                    <div class="item-title text-color-black">{{nama}}<br><span class="text-secondary small mt-0">{{kelas}} - {{sekolah}}</span></div>
+                                    </div>
+                                </div>
+                                </a>
+                            </li>
+                            {{/each}}
+                            <li>
+                                <a href="/school/tambahsiswa/" class="item-link no-chevron popover-close">
+                                    <div class="item-content">
+                                        <div class="item-media">
+                                            <div class="avatar avatar-40 no-shadow bg-color-gray border-0">
+                                                <i class="material-icons text-color-white">person_add</i>
+                                            </div>
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title text-color-black">Tambah Akun Siswa</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
+    </div>
+</template>
+<script>
+    var hari = new Date();
+    var namaHari = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+    var monthNames = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus' , 'September' , 'Oktober', 'November', 'Desember'];
+    return {
+        data:function(){
+            return{
+                loading: true,
+                akunAktif:[],
+                akunAll:[],
+                tanggal:namaHari[hari.getDay()]+', '+hari.getDate()+' '+monthNames[hari.getMonth()]+' '+hari.getFullYear(),
+            }
+        },
+        methods:{
+            pullstart: function(params) {
+                var b = document.getElementById('ptr').hidden=false;
+            },
+            ptr: function (e, done) {
+                var self = this;
+                var $ = self.$$;
+                self.$setState({    
+                    loading:true
+                });
+                setTimeout(function() {
+                self.$setState({ loading: false });
+                var b = document.getElementById('ptr').hidden=true;
+                }, 3000);// refresh done
+                
+                setTimeout(function () {
+                    self.$setState({
+                        items: self.items,
+                    });
+                // Done
+                done();
+                }, 2000);
+                this.halAwal();
+            },
+            openGrid: function () {
+                var self = this;
+                self.actionsGrid.open();
+            },
+            halAwal: function(){
+                var self = this;
+            var app = self.$app;
+            var $ = self.$;
+            setTimeout(function() {
+                self.$setState({ loading: false });
+            }, 3000);
+            self.$setState({ 
+                akunAktif:JSON.parse(localStorage.getItem("akunAktif")),
+                akunAll:JSON.parse(localStorage.getItem("akunAll")),   
+            });
+            setTimeout(function() {
+                $('#jml_notif').addClass("counts");
+                $('#jml_notif').text("9+");
+            }, 5000);
+            self.$setState({ 
+                gambarAktif:self.akunAktif[0].gambar,
+                namaAktif:self.akunAktif[0].nama,
+                kelasAktif:self.akunAktif[0].kelas,
+                sekolahAktif:self.akunAktif[0].sekolah,    
+            });
+            var gridButtons = [
+        [
+            {
+                text: 'Pengumuman',
+                icon: '<div class="avatar avatar-50 no-shadow border-0 link"><div class="overlay bg-template"></div><i class="fas fa-bullhorn text-template" style="font-size: 21px;"></i><span class="counts" style="z-index: 10; margin-top: -5px; margin-right: -5px;">9+</span></div>',
+                onClick: function () {
+                    app.views.main.router.navigate('/school/pengumuman/');
+                }
+            },
+            {
+                text: 'Kontak',
+                icon: '<div class="avatar avatar-50 no-shadow border-0"><div class="overlay bg-template"></div><i class="fab fa-whatsapp text-template" style="font-size: 24px;"></i></div>',
+                onClick: function () {
+                    app.views.main.router.navigate('/school/message/');
+                }
+            },
+            {
+                text: '<div class="px-2"><div class="bg-color-gray align-self-center text-color-gray">i</div></div>',
+                icon: '<div class="avatar avatar-50 no-shadow border-0 bg-color-gray"></div>'
+            },
+        ],
+        [
+            {
+                text: '<div class="px-2"><div class="bg-color-gray align-self-center text-color-gray">i</div></div>',
+                icon: '<div class="avatar avatar-50 no-shadow border-0 bg-color-gray"></div>'
+            },
+            {
+                text: '<div class="px-2"><div class="bg-color-gray align-self-center text-color-gray">i</div></div>',
+                icon: '<div class="avatar avatar-50 no-shadow border-0 bg-color-gray"></div>'
+            },
+            {
+                text: '<div class="px-2"><div class="bg-color-gray align-self-center text-color-gray">i</div></div>',
+                icon: '<div class="avatar avatar-50 no-shadow border-0 bg-color-gray"></div>'
+            },
+        ],
+    ];
+            },
+            konfirmasiKeluar: function(){
+                var app = this.$app;
+                app.dialog.create({
+                    title: '<p class="text-align-center" style="width=100%">Logout dari LinkSmart?</p>',
+                    buttons: [
+                        {
+                        text: '<div class="link text-align-center border-top" style="width: 100%;">Logout</div>',
+                        bold: true,
+                        onClick: function(){
+                            localStorage.login='';
+                            app.views.main.router.navigate('/signin/');
+                            app.panel.close('.panel', false);
+                        }
+                        },
+                        {
+                        text: '<div class="text-align-center border-top text-color-black" style="width: 100%;">Batal</div>',
+                        },
+                    ],
+                    verticalButtons: true,
+                }).open();
+            },
+            gantiAkun: function(a) {
+                var self = this;
+                var $ = self.$;
+                var pos = self.akunAll.map(function(e) { return e.id; }).indexOf(a);
+                [self.akunAktif[0],self.akunAll[pos]] = [self.akunAll[pos],self.akunAktif[0]];
+                localStorage.setItem("akunAktif", JSON.stringify(self.akunAktif));
+                localStorage.setItem("akunAll", JSON.stringify(self.akunAll));
+                self.$setState({ 
+                    gambarAktif:self.akunAktif[0].gambar,
+                    namaAktif:self.akunAktif[0].nama,
+                    kelasAktif:self.akunAktif[0].kelas,
+                    sekolahAktif:self.akunAktif[0].sekolah,    
+                });
+                
+            },
+            tutupPanel:function(){
+                var self = this;
+                var app = self.$app;
+                app.panel.close('.panel', false);
+            },
+            bukaPanel:function(){
+                var self = this;
+                var app = self.$app;
+                app.panel.open('.panel', false);
+            },
+        },
+        on: {
+        pageInit: function () {
+            this.halAwal();
+
+
+        },
+        pageBeforeRemove() {
+            hari= new Date();
+        }, 
+    }
+    }
+</script>
+<style>
+    .actions-backdrop{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 80%;
+        height: 80%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 13000;
+        visibility: hidden;
+        opacity: 0;
+        transition-duration: 400ms;
+    }
+    p{
+        margin-top: 5px;
+        line-height: 15px;
+    }
+    .con{
+        margin-bottom: 10px;
+    }
+    .containerL {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+</style>
